@@ -645,6 +645,10 @@ h1 em{color:var(--cu);text-shadow:none}
 .wist{margin-top:20px;border-radius:var(--r-md);overflow:hidden;background:#0B0B0B;border:1px solid #3A2B20;aspect-ratio:16/9;position:relative}
 .wist wistia-player{display:block;width:100%;height:100%}
 .wist{aspect-ratio:auto}.wist wistia-player{height:auto}
+/* v8 wistia sizing: two thirds on desktop, centered */
+.wist{width:66.667%;margin:24px auto 0}
+@media (max-width:900px){.wist{width:100%}}
+.wist+.chapters{margin-top:18px}.wist{margin-bottom:0}
 </style>
 </head>
 <body>
@@ -1086,26 +1090,11 @@ h1 em{color:var(--cu);text-shadow:none}
       <div class="eyebrow"><span>08 · Training</span><span class="ctr">08 / 10</span></div>
       <h2>The Elite Closer's <em>Playbook</em></h2>
       <p class="lede">A masterclass I recorded on how to close: how elite closers think, why people really don't buy, how to take apart an objection, and the framework to run before every call.</p>
-      <div class="loom" id="loom" data-id="bac5a84a57014461841991a4aec66c18">
-        <button class="loomplay" id="loomBtn" aria-label="Play the Elite Closer's Playbook training">
-          <span class="poster" aria-hidden="true">
-            <span class="pt"><small>Masterclass · 1h 17m</small><b>The Elite Closer's Playbook</b><em>Seven core lessons, the Onion of Blame, and a call-by-call framework.</em></span>
-            <img class="pp" src="media/portrait.webp" alt="" width="760" height="1140">
-          </span>
-          <img class="real" src="media/loom-thumb.webp" alt="" onload="this.classList.add('on');this.parentNode.querySelector('.poster').style.display='none'" onerror="this.remove()">
-          <span class="pb"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
-          <span class="loomlabel"><b>Watch the full training</b><span>Press play</span></span>
-        </button>
+      <div class="wist">
+        <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/a3h7q8iqca.js" async type="module"></script><style>wistia-player[media-id='a3h7q8iqca']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/a3h7q8iqca/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+        <wistia-player media-id="a3h7q8iqca" aspect="1.7777777777777777"></wistia-player>
       </div>
       <ul class="chapters"><li><b>01</b>7 core lessons</li><li><b>02</b>The Onion of Blame</li><li><b>03</b>Objection handling</li><li><b>04</b>The elite closer framework</li><li><b>+</b>Cheat sheet for every call</li></ul>
-      <div class="vid2">
-        <h3 class="sub">Email marketing training</h3>
-        <p class="vsub">A second training I recorded, this one on email: how I plan and build the channel.</p>
-        <div class="wist">
-          <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/a3h7q8iqca.js" async type="module"></script><style>wistia-player[media-id='a3h7q8iqca']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/a3h7q8iqca/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
-          <wistia-player media-id="a3h7q8iqca" aspect="1.7777777777777777"></wistia-player>
-        </div>
-      </div>
     </section>
 
     <!-- EXPERIENCE -->
@@ -1278,17 +1267,6 @@ h1 em{color:var(--cu);text-shadow:none}
       else if(e.key==='ArrowLeft') show(idx-1);
       else if(e.key==='ArrowRight') show(idx+1);
     } else if(e.key==='Escape') closeMenu();
-  });
-
-  /* ---------- Loom: click to load ---------- */
-  var loom = document.getElementById('loom'), loomBtn = document.getElementById('loomBtn');
-  loomBtn.addEventListener('click', function(){
-    var f = document.createElement('iframe');
-    f.src = 'https://www.loom.com/embed/' + loom.getAttribute('data-id') + '?autoplay=1&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
-    f.title = 'One-hour training video';
-    f.allow = 'autoplay; fullscreen; picture-in-picture';
-    f.setAttribute('allowfullscreen','');
-    loom.innerHTML = ''; loom.appendChild(f);
   });
 
   /* ---------- copy email ---------- */
