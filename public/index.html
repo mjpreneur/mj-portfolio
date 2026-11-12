@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>MJ Alshubi Portfolio</title>
+<meta name="description" content="MJ Alshubi, Sales & Marketing Strategist. Paid ads, email, influencer marketing, creative strategy and sales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/* AgencyX brand: JetBrains Mono throughout, near-black + warm off-white panels, mint accent.
+   Layout: fixed sidebar beside stacked rounded panels that alternate dark / light. */
+:root{
+  --black:#E6E0D4;--esp:#20150E;--cu:#A5622D;--fb:'Inter',system-ui,-apple-system,Segoe UI,sans-serif;--mint:#5EDBA5;--green:#2A7A5C;--dgreen:#143024;--paper:#EDEDE8;
+  --f:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-lg:24px;--r-md:14px;--r-sm:10px;
+  color-scheme:dark;
+}
+/* theme tokens: light is the default panel, .dark flips them */
+.sec{
+  --panel:#F6F3EC;--card:#FFFDF9;--ink:#1B130D;--ink-2:#5B4E43;--ink-3:#76695D;--line:#E0D7C9;
+  --acc-t:#2A7A5C;--acc-soft:rgba(42,122,92,.1);--soft:#EEE8DC;--frame:#EAE3D6;
+  --shadow:0 1px 2px rgba(60,40,20,.06),0 16px 32px -20px rgba(60,40,20,.3);
+}
+.sec.dark,.side,.topbar{
+  --panel:#20150E;--card:#2A1D14;--ink:#F3EDE4;--ink-2:#BDAFA0;--ink-3:#8F8172;--line:#3A2B20;
+  --acc-t:#5EDBA5;--acc-soft:rgba(94,219,165,.12);--soft:#33251A;--frame:#170E09;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 40px -22px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px;background:var(--black)}
+body{margin:0;background:var(--black);color:#1B130D;font:400 15px/1.7 var(--fb);-webkit-font-smoothing:antialiased;font-feature-settings:"calt" 0}
+img,video{max-width:100%;display:block}
+h1,h2,h3,h4,p,figure,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--mint);outline-offset:3px;border-radius:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* scroll progress */
+.prog{position:fixed;left:0;right:0;top:0;height:2px;z-index:90;pointer-events:none}
+.prog i{display:block;height:100%;background:var(--mint);transform-origin:0 50%;transform:scaleX(0);box-shadow:0 0 12px rgba(94,219,165,.7)}
+
+/* shell */
+.shell{display:grid;grid-template-columns:276px minmax(0,1fr);gap:16px;max-width:1560px;margin:0 auto;
+  padding-block:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.main{display:flex;flex-direction:column;gap:16px;min-width:0}
+
+/* sidebar */
+.side{position:sticky;top:16px;height:calc(100vh - 32px);align-self:start;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r-lg);
+  display:flex;flex-direction:column;padding:20px 12px 14px;overflow:hidden;z-index:40}
+.brand{display:flex;align-items:center;gap:12px;padding:0 8px 16px;border-bottom:1px solid var(--line);margin-bottom:10px}
+.mark{width:40px;height:40px;border-radius:10px;background:var(--mint);color:#0B0B0B;display:grid;place-items:center;font:800 15px/1 var(--f);letter-spacing:-.04em;flex:none}
+.brand b{display:block;font:700 13.5px/1.2 var(--f);letter-spacing:.02em;text-transform:uppercase}
+.brand span{font:400 10.5px/1.35 var(--f);color:var(--ink-2);display:block;margin-top:2px}
+.navscroll{flex:1;min-height:0;overflow-y:auto;scrollbar-width:none}
+.navscroll::-webkit-scrollbar{display:none}
+.nav{position:relative;display:flex;flex-direction:column;gap:1px;padding:2px 0 2px 14px}
+.rail{position:absolute;left:4px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.rail i{position:absolute;left:0;top:0;width:1px;background:var(--mint);height:var(--p,0px);transition:height .35s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 8px rgba(94,219,165,.8)}
+.nav a{position:relative;display:flex;align-items:center;gap:12px;min-height:42px;padding:0 12px;border-radius:10px;text-decoration:none;font:500 11.5px/1 var(--f);letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);transition:background .18s,color .18s}
+.nav a em{font-style:normal;font-size:10.5px;color:var(--ink-3);width:18px;transition:color .18s}
+.nav a::after{content:"→";margin-left:auto;opacity:0;transform:translateX(-6px);transition:opacity .18s,transform .18s;color:var(--mint)}
+.nav a:hover{background:var(--soft);color:var(--ink)}
+.nav a:hover::after{opacity:1;transform:none}
+.nav a:hover em{color:var(--mint)}
+.nav a[aria-current="true"]{background:rgba(94,219,165,.09);color:var(--mint);font-weight:700}
+.nav a[aria-current="true"] em{color:var(--mint)}
+.nav a[aria-current="true"]::before{content:"";position:absolute;left:-14px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px #111,0 0 12px rgba(94,219,165,.9)}
+.nav .grp{font:500 9.5px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);padding:16px 12px 6px}
+.avail{margin-top:10px;border-radius:var(--r-md);background:linear-gradient(160deg,#143024,#0d1a14 70%);border:1px solid rgba(94,219,165,.28);color:#EDEDE8;padding:14px}
+.avail small{display:flex;align-items:center;gap:8px;font:500 10px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--mint)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none;box-shadow:0 0 0 0 rgba(94,219,165,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(94,219,165,.55)}70%{box-shadow:0 0 0 8px rgba(94,219,165,0)}100%{box-shadow:0 0 0 0 rgba(94,219,165,0)}}
+.avail p{font:700 13px/1.35 var(--f);margin:10px 0 12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:0 20px;border-radius:10px;border:1px solid transparent;text-decoration:none;font:700 11.5px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;background:var(--mint);color:#0B0B0B;transition:background .18s,transform .18s,box-shadow .18s,border-color .18s,color .18s}
+.btn:hover{background:#86EBBB;transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(94,219,165,.6)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--mint);color:var(--acc-t);background:transparent}
+.avail .btn{width:100%}
+.btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.social{display:flex;gap:8px;padding:10px 8px 0;align-items:center;font:500 11px/1 var(--f);color:var(--ink-2)}
+.social a{display:inline-flex;align-items:center;gap:8px;min-height:36px;text-decoration:none}
+.social a:hover{color:var(--mint)}
+
+/* mobile top bar */
+.topbar{display:none}
+.scrim{display:none}
+
+/* section scaffolding */
+.sec{--pad:clamp(20px,3.4vw,44px);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--pad);min-width:0;position:relative}
+.eyebrow{display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 11px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--acc-t);padding-bottom:16px;border-bottom:1px solid var(--line)}
+.eyebrow .ctr{color:var(--ink-3);letter-spacing:.1em;font-size:10.5px;white-space:nowrap}
+h2{font:800 clamp(22px,2.7vw,38px)/1.12 var(--f);letter-spacing:-.035em;text-transform:uppercase;margin-top:26px;text-wrap:balance}
+h2 em{font-style:normal;color:var(--acc-t)}
+.lede{font-size:clamp(13.5px,1.1vw,15px);color:var(--ink-2);max-width:72ch;margin-top:16px}
+.sub{font:700 13px/1.3 var(--f);letter-spacing:.14em;text-transform:uppercase;margin:44px 0 6px;color:var(--ink);display:flex;align-items:center;gap:10px}
+.sub::before{content:"";width:18px;height:2px;background:var(--mint);flex:none}
+.subp{color:var(--ink-2);max-width:70ch;font-size:13px}
+
+/* goal / strategy / process / result */
+.gspr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:30px}
+.gspr>div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 18px 20px;min-width:0}
+.gspr dt{font:500 10px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--acc-t);margin-bottom:12px}
+.gspr dd{margin:0;font-size:12.5px;line-height:1.65;color:var(--ink)}
+.gspr>div.res{background:var(--mint);border-color:var(--mint)}
+.gspr>div.res dt,.gspr>div.res dd{color:#0B0B0B}
+
+/* media */
+.grid{display:grid;gap:12px;margin-top:20px}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.shot{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;display:flex;flex-direction:column;min-width:0;box-shadow:var(--shadow);transition:transform .25s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
+.shot:hover{transform:translateY(-4px);border-color:var(--mint);box-shadow:0 0 0 1px rgba(94,219,165,.35),0 22px 44px -22px rgba(94,219,165,.35)}
+.shot-btn{all:unset;display:block;cursor:zoom-in;position:relative}
+.shot-btn:focus-visible{outline:2px solid var(--mint);outline-offset:-3px}
+.chrome{display:flex;align-items:center;gap:10px;height:30px;padding:0 12px;background:var(--soft);border-bottom:1px solid var(--line)}
+.chrome i{width:8px;height:8px;border-radius:50%;background:var(--ink-3);opacity:.55;display:block;flex:none}
+.chrome i+i{margin-left:-4px}
+.chrome span{font:500 9.5px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chrome b{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:700 9px/1 var(--f);letter-spacing:.16em;color:var(--acc-t);white-space:nowrap}
+.chrome b::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint);animation:pulse 2.2s infinite}
+.frame{background:var(--frame);display:grid;place-items:center;aspect-ratio:5/4;overflow:hidden;position:relative}
+.frame.wide{aspect-ratio:2.02/1}
+.frame.banner{aspect-ratio:1.9/1}
+.frame.story{aspect-ratio:9/16}
+.frame img,.frame video{width:100%;height:100%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.shot:hover .frame img,.shot:hover .frame video{transform:scale(1.03)}
+.frame.story img{object-fit:cover}
+.shot figcaption{padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;min-width:0}
+.shot figcaption b{font:700 13.5px/1.35 var(--f);letter-spacing:-.01em}
+.shot figcaption span{font:400 11.5px/1.55 var(--f);color:var(--ink-2)}
+.tag{display:inline-block;width:max-content;max-width:100%;font:500 9.5px/1 var(--f)!important;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-t)!important;background:var(--acc-soft);padding:6px 8px;border-radius:6px;margin-bottom:6px}
+.zoom{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:9px;background:rgba(11,11,11,.78);color:#fff;display:grid;place-items:center;opacity:0;transition:opacity .15s;z-index:2}
+.shot-btn.hc .zoom{top:40px}
+.shot-btn:hover .zoom,.shot-btn:focus-visible .zoom{opacity:1}
+.zoom svg{width:16px;height:16px;stroke:var(--mint);fill:none;stroke-width:2;stroke-linecap:round}
+.fine{font:400 11px/1.6 var(--f);color:var(--ink-3);margin-top:18px}
+
+/* featured result + ROAS chart */
+.feature{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:12px;margin-top:30px}
+.fcase{position:relative;overflow:hidden;background:linear-gradient(160deg,#143024,#0d1a14 75%);border:1px solid rgba(94,219,165,.3);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.fcase::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(94,219,165,.35),transparent 65%);pointer-events:none}
+.fcase .tag{background:var(--mint);color:#0B0B0B!important}
+.fcase .big{font:800 clamp(44px,5.4vw,76px)/1 var(--f);letter-spacing:-.06em;color:var(--mint);position:relative;z-index:1}
+.fcase p{font-size:12.5px;color:#cfd6d1;max-width:36ch;position:relative;z-index:1}
+.fcase p b{color:#fff}
+.fcase .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid rgba(94,219,165,.22);position:relative;z-index:1}
+.fcase .meta div{font:500 9.5px/1.4 var(--f);letter-spacing:.14em;text-transform:uppercase;color:#9fb3a8}
+.fcase .meta b{display:block;font:800 20px/1.1 var(--f);letter-spacing:-.04em;color:#fff;margin-bottom:2px}
+.chart{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;min-width:0}
+.chead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.chead b{font:700 12px/1.3 var(--f);letter-spacing:.12em;text-transform:uppercase}
+.chead span{font:400 10.5px/1.4 var(--f);color:var(--ink-3)}
+.crow2{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr) 64px;gap:12px;align-items:center;padding:8px 0;border-top:1px dashed var(--line)}
+.crow2:first-of-type{border-top:0}
+.crow2 .lab{font:400 11px/1.35 var(--f);color:var(--ink-2)}
+.crow2 .lab small{display:block;font-size:9.5px;color:var(--ink-3);letter-spacing:.06em}
+.crow2 .bar{height:12px;border-radius:3px;background:var(--soft);overflow:hidden;display:block}
+.crow2 .bar i{display:block;height:100%;width:calc(var(--v) / 16 * 100%);border-radius:3px;background:linear-gradient(90deg,var(--green),var(--mint));transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .chart:not(.grown) .bar i{width:0}
+.crow2 .val{font:800 14px/1 var(--f);letter-spacing:-.03em;text-align:right;font-variant-numeric:tabular-nums}
+.chart .note{font:400 10.5px/1.5 var(--f);color:var(--ink-3);margin-top:12px}
+
+/* flow steps */
+.flow{display:grid;grid-template-columns:repeat(var(--n,5),minmax(0,1fr));gap:10px;margin-top:20px;counter-reset:step}
+.flow li{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:16px;position:relative;min-width:0;counter-increment:step}
+.flow li::before{content:"0" counter(step);display:block;font:700 11px/1 var(--f);letter-spacing:.14em;color:var(--acc-t);margin-bottom:12px}
+.flow li b{display:block;font:700 13px/1.3 var(--f);margin-bottom:6px;text-transform:uppercase;letter-spacing:.02em}
+.flow li span{font-size:12px;line-height:1.6;color:var(--ink-2)}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-8px;top:50%;width:7px;height:7px;border-top:2px solid var(--mint);border-right:2px solid var(--mint);transform:translateY(-50%) rotate(45deg);z-index:2}
+
+/* message cards */
+.msg{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.msg header{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.msg header b{font:700 12.5px/1.2 var(--f);text-transform:uppercase;letter-spacing:.04em}
+.msg .pill{font:700 9.5px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:6px 8px;border-radius:6px}
+.msg p{font-size:12px;line-height:1.7;color:var(--ink-2)}
+.msg ul{display:flex;flex-direction:column;gap:3px;padding-left:16px;list-style:disc;font-size:12px;color:var(--ink-2)}
+.msg li::marker{color:var(--mint)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px;min-width:0}
+.stat b{display:block;font:800 clamp(24px,2.8vw,38px)/1 var(--f);letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:10px;font:500 10px/1.5 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.stat.hot{background:var(--mint);border-color:var(--mint);color:#0B0B0B}.stat.hot span{color:#143024}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);column-gap:clamp(16px,3vw,40px);align-items:end;overflow:hidden;isolation:isolate;padding-bottom:0}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-image:linear-gradient(rgba(237,237,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(237,237,232,.045) 1px,transparent 1px);background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 90% at 70% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 80% 90% at 70% 40%,#000 20%,transparent 75%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(520px circle at var(--mx,72%) var(--my,34%),rgba(94,219,165,.15),transparent 62%)}
+.hero-copy{padding-bottom:clamp(26px,3.4vw,44px);align-self:center;padding-top:6px;position:relative;z-index:2}
+.status{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(94,219,165,.35);background:rgba(94,219,165,.07);color:var(--mint);border-radius:99px;padding:9px 16px;font:500 10.5px/1 var(--f);letter-spacing:.14em;text-transform:uppercase}
+h1{font:800 clamp(46px,6.4vw,96px)/.92 var(--f);letter-spacing:-.07em;text-transform:uppercase;margin-top:26px}
+h1 em{font-style:normal;color:var(--mint);display:block;text-shadow:0 0 50px rgba(94,219,165,.35)}
+.role{font:500 clamp(11px,1vw,13px)/1.5 var(--f);letter-spacing:.3em;text-transform:uppercase;color:var(--ink);margin-top:22px;display:flex;align-items:center;gap:14px}
+.role::before{content:"";width:34px;height:2px;background:var(--mint);flex:none}
+.hero p.pitch{font-size:clamp(13px,1.05vw,14.5px);line-height:1.75;color:var(--ink-2);max-width:54ch;margin-top:20px}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.portrait-wrap{position:relative;align-self:end;display:flex;justify-content:center;min-width:0}
+.glow{position:absolute;left:50%;top:12%;width:92%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(94,219,165,.34),rgba(94,219,165,.08) 52%,transparent 70%)}
+.orbit{position:absolute;left:50%;top:14%;width:80%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;border:1px solid rgba(94,219,165,.28)}
+.orbit::after{content:"";position:absolute;inset:-9%;border-radius:50%;border:1px dashed rgba(237,237,232,.12)}
+.portrait{position:relative;width:min(100%,440px);aspect-ratio:516/720;display:grid;place-items:center}
+.portrait:not(.has){border-radius:999px 999px 0 0;background:linear-gradient(180deg,#1b1b1b,#111);overflow:hidden;border:1px solid var(--line);border-bottom:0}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;z-index:2;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 3%,#000 88%,transparent 100%);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right,transparent 0,#000 16%,#000 84%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 3%,#000 88%,transparent 100%);mask-composite:intersect}
+.portrait.has .ph{display:none}
+.ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink-3);text-align:center;padding:0 20px;margin-top:14%}
+.ph svg{width:62%;max-width:230px;fill:#262626}
+.ph span{font:500 10.5px/1.6 var(--f);letter-spacing:.14em;text-transform:uppercase}
+.chip{position:absolute;z-index:3;background:rgba(23,23,23,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #2f2f2f;border-radius:12px;padding:10px 13px;box-shadow:0 14px 34px -14px rgba(0,0,0,.9);animation:bob 6s ease-in-out infinite}
+.chip b{display:block;font:800 22px/1 var(--f);letter-spacing:-.06em;color:var(--mint)}
+.chip small{display:block;margin-top:5px;font:500 9px/1.35 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.chip.mint{background:var(--mint);border-color:var(--mint)}.chip.mint b{color:#0B0B0B}.chip.mint small{color:#143024}
+.chip.c1{left:-7%;top:46%;animation-delay:-2s}
+.chip.c2{right:-3%;top:20%}
+.chip.c3{right:-1%;bottom:24%;animation-delay:-4s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.strip{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 calc(var(--pad) * -1);border-top:1px solid var(--line);position:relative;z-index:3;background:rgba(17,17,17,.7)}
+.st{padding:20px var(--pad) 22px;border-left:1px solid var(--line);min-width:0}
+.st:first-child{border-left:0}
+.st b{display:block;font:800 clamp(24px,2.7vw,38px)/1 var(--f);letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.st span{display:block;margin-top:9px;font:500 10px/1.5 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.st.hot b{color:var(--mint)}
+
+/* tools marquee */
+.marq{margin:22px calc(var(--pad) * -1) 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.mtrack{display:flex;width:max-content;animation:mq 46s linear infinite;will-change:transform}
+.mgroup{display:flex;gap:14px;padding-right:14px;flex:none}
+.tile{flex:none;height:78px;min-width:156px;padding:0 30px;display:flex;align-items:center;justify-content:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.tile img{height:30px;width:auto;max-width:none}
+.tile.icon img{height:40px}
+.tile span{font:700 11.5px/1.2 var(--f);letter-spacing:.08em;text-transform:uppercase;color:#0B0B0B;white-space:nowrap}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* awareness ladder */
+.ladder{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px;align-items:end}
+.ladder>div{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ladder>div:nth-child(1){min-height:160px}.ladder>div:nth-child(2){min-height:188px}.ladder>div:nth-child(3){min-height:216px}.ladder>div:nth-child(4){min-height:244px}.ladder>div:nth-child(5){min-height:272px;background:var(--mint);border-color:var(--mint);color:#0B0B0B}
+.ladder b{font:700 12.5px/1.25 var(--f);text-transform:uppercase;letter-spacing:.02em}
+.ladder em{font-style:normal;font-size:11px;color:var(--ink-3);line-height:1.45}
+.ladder p{font-size:11.5px;line-height:1.6;margin-top:auto}
+.ladder>div:nth-child(5) em{color:#143024}
+.fw{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0;transition:border-color .25s,transform .25s}
+.fw:hover{border-color:var(--mint);transform:translateY(-3px)}
+.fw small{font:500 9.5px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--acc-t)}
+.fw b{font:700 14.5px/1.3 var(--f);letter-spacing:-.01em}
+.fw p{font-size:12px;color:var(--ink-2);line-height:1.7}
+.fw p.use{color:var(--ink);border-top:1px dashed var(--line);padding-top:10px;margin-top:4px}
+.fw p.use i{font:normal 500 9.5px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--acc-t);display:block;margin-bottom:6px}
+.refs{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.refbtn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 18px;border-radius:10px;background:var(--card);border:1px solid var(--line);font:700 11px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:border-color .18s,color .18s}
+.refbtn:hover{border-color:var(--mint);color:var(--acc-t)}
+.refbtn:focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+
+/* device windows */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tab{min-height:44px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:var(--card);font:500 11px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);transition:border-color .18s,color .18s}
+.tab:hover{border-color:var(--mint);color:var(--ink)}
+.tab[aria-selected="true"]{background:var(--mint);border-color:var(--mint);color:#0B0B0B;font-weight:700}
+.devices{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:20px;margin-top:18px;align-items:start}
+.dwin{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.dbar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--soft);border-bottom:1px solid var(--line)}
+.lights{display:flex;gap:6px}.lights i{width:10px;height:10px;border-radius:50%;background:var(--ink-3);opacity:.5;display:block}
+.urlbox{flex:1;min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 12px;font:400 11px/1.2 var(--f);color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.open{font:700 10.5px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--acc-t);padding:12px 6px;white-space:nowrap}
+.open:hover{text-decoration:underline}
+.dscreen{position:relative;aspect-ratio:16/10;overflow:hidden;background:#fff}
+.dscreen iframe{position:absolute;left:0;top:0;width:1440px;height:900px;border:0;transform-origin:0 0;transform:scale(var(--s,.6));background:#fff}
+.phonecol{display:flex;flex-direction:column;align-items:center;gap:10px}
+.phone{width:100%;max-width:300px;background:#050505;border:1px solid #333;border-radius:42px;padding:11px;box-shadow:var(--shadow)}
+.pscreen{position:relative;overflow:hidden;border-radius:32px;background:#fff;aspect-ratio:390/780}
+.pscreen iframe{position:absolute;left:0;top:0;width:390px;height:780px;border:0;transform-origin:0 0;transform:scale(var(--s,.7));background:#fff}
+.notch{position:absolute;top:9px;left:50%;width:84px;height:22px;background:#050505;border-radius:99px;transform:translateX(-50%);z-index:3;pointer-events:none}
+.cap{font:500 10px/1.4 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);text-align:center}
+.wnote{margin-top:14px;font-size:11.5px;color:var(--ink-3)}
+
+/* loom */
+.loom{position:relative;aspect-ratio:16/9;border-radius:var(--r-md);overflow:hidden;background:linear-gradient(135deg,#143024,#0B0B0B);margin-top:24px;border:1px solid var(--line)}
+.loom iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.loomplay{all:unset;box-sizing:border-box;position:absolute;inset:0;cursor:pointer;display:grid;place-items:center}
+.loomplay:focus-visible{outline:3px solid var(--mint);outline-offset:-6px}
+.loomplay img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.loomplay .pb{position:relative;width:92px;height:92px;border-radius:50%;background:var(--mint);display:grid;place-items:center;box-shadow:0 0 0 12px rgba(94,219,165,.18),0 10px 40px rgba(0,0,0,.4);transition:transform .15s,box-shadow .15s}
+.loomplay:hover .pb{transform:scale(1.06);box-shadow:0 0 0 18px rgba(94,219,165,.22),0 10px 40px rgba(0,0,0,.4)}
+.loomplay .pb svg{width:32px;height:32px;fill:#0B0B0B;margin-left:5px}
+.loomlabel{position:absolute;left:18px;bottom:16px;right:18px;color:#fff;z-index:2;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.loomlabel b{font:800 clamp(15px,2vw,24px)/1.15 var(--f);text-transform:uppercase;letter-spacing:-.03em}
+.loomlabel span{font:500 10px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--mint)}
+
+/* experience */
+.tl{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.job{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:20px}
+.job time{font:500 11px/1.5 var(--f);color:var(--acc-t);letter-spacing:.1em;text-transform:uppercase}
+.job h3{font:700 14.5px/1.35 var(--f);text-transform:uppercase;letter-spacing:-.005em}
+.job h3 small{font:500 10px/1.4 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block;margin-top:6px}
+.job ul{margin-top:12px;display:flex;flex-direction:column;gap:6px;padding-left:16px;list-style:disc;color:var(--ink-2);font-size:12px}
+.job li::marker{color:var(--mint)}
+.job.now{border-color:var(--mint);background:var(--acc-soft)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;align-items:stretch}
+.ccard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.crow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.addr{font:700 clamp(13px,1.35vw,16px)/1.3 var(--f);word-break:break-all;user-select:all}
+.cl{font:500 9.5px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
+footer{padding:8px 10px 4px;font:400 11px/1.5 var(--f);color:#7E7E79;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* reveal on scroll (only when JS runs and motion is allowed) */
+.js .rv{opacity:0;transform:translateY(16px)}
+.js .rv.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,5,5,.92);display:none;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb.on{display:flex}
+.lb-in{max-width:min(1280px,100%);max-height:100%;display:flex;flex-direction:column;gap:12px;align-items:center;min-height:0}
+.lb-in img,.lb-in video{max-width:100%;max-height:calc(100vh - 150px);border-radius:10px;background:#fff;object-fit:contain}
+.lb-cap{color:#EDEDE8;font:400 12px/1.6 var(--f);text-align:center;max-width:70ch}
+.lb button{all:unset;box-sizing:border-box;position:absolute;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;display:grid;place-items:center;cursor:pointer;font:500 22px/1 var(--f)}
+.lb button:hover{background:var(--mint);color:#0B0B0B}
+.lb button:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+.lb .x{top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
+.lb .p{left:max(12px,env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
+.lb .n{right:max(12px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%)}
+
+/* responsive */
+@media (max-width:1180px){
+  .hero{grid-template-columns:1fr}
+  .portrait-wrap{max-width:460px;margin:8px auto 0;width:100%}
+  .hero-copy{padding-bottom:0}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .devices{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow li::after{display:none}
+  .ladder{grid-template-columns:1fr}
+  .ladder>div{min-height:0!important}
+  .feature{grid-template-columns:1fr}
+}
+@media (max-width:920px){
+  .shell{grid-template-columns:1fr;padding-top:0}
+  .topbar{display:flex;position:sticky;top:env(safe-area-inset-top,0px);z-index:30;margin:0 -2px;align-items:center;justify-content:space-between;gap:12px;padding:10px 6px;background:#20150E;color:var(--ink)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:#20150E}
+  .topbar .brand{padding:0;border:0;margin:0}
+  .menu{width:48px;height:48px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center}
+  .menu svg{width:22px;height:22px;stroke:var(--mint);fill:none;stroke-width:2;stroke-linecap:round}
+  .side{position:fixed;left:0;top:0;bottom:0;height:auto;width:min(316px,88vw);border-radius:0 var(--r-lg) var(--r-lg) 0;transform:translateX(-105%);transition:transform .22s;z-index:60;padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .side.open{transform:none}
+  .scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:55;opacity:0;pointer-events:none;transition:opacity .2s}
+  .scrim.on{opacity:1;pointer-events:auto}
+  html{scroll-padding-top:80px}
+  .gspr{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .gspr,.g3,.g2,.g4{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr;gap:8px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .st:nth-child(3){border-left:0}
+  .st:nth-child(n+3){border-top:1px solid var(--line)}
+  .chip.c1{display:none}.chip.c2{right:0;top:12%}.chip.c3{right:0;bottom:22%}
+  .chip b{font-size:18px}
+  .crow2{grid-template-columns:minmax(0,1fr) 54px;row-gap:6px}
+  .crow2 .lab{grid-column:1/-1}
+  .crow2 .bar{grid-column:1}
+  .frame.story{aspect-ratio:9/14}
+  .g4.story-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tile{height:68px;min-width:132px;padding:0 22px}
+  .tile img{height:26px}.tile.icon img{height:34px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .side,.scrim,.zoom,.loomplay .pb,.rail i,.crow2 .bar i{transition:none}
+  .chip,.dot,.chrome b::before{animation:none}
+  .mtrack{animation:none}
+  .marq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+}
+
+/* ===== v3: light theme, espresso + copper, Inter body ===== */
+:focus-visible{outline-color:var(--cu)}
+.prog i{background:linear-gradient(90deg,var(--cu),#5EDBA5);box-shadow:none}
+footer{color:#6E6254}
+.lede{font-size:clamp(15px,1.2vw,16.5px)}
+.subp{font-size:14px}
+.gspr dd{font-size:14px;line-height:1.65}
+.msg p,.msg ul{font-size:13.5px}
+.fw p{font-size:13.5px}
+.flow li span{font-size:13px}
+.job ul{font-size:13.5px}
+.ladder p{font-size:12.5px}.ladder em{font-size:12px}
+.shot figcaption span{font:400 12.5px/1.55 var(--fb)}
+.fine,.wnote,.chart .note,.chead span{font-family:var(--fb);font-size:12px}
+.fcase p{font-size:13.5px;font-family:var(--fb)}
+.hero p.pitch{font-size:clamp(15px,1.15vw,16.5px)}
+.sec:not(.dark) h2 em{color:var(--cu)}
+.sec:not(.dark) .sub::before,.sec:not(.dark) .role::before{background:var(--cu)}
+.sec:not(.dark) li::marker{color:var(--cu)}
+.sec:not(.dark) .shot:hover{border-color:var(--cu);box-shadow:0 0 0 1px rgba(165,98,45,.35),0 22px 40px -22px rgba(100,60,25,.4)}
+.sec:not(.dark) .fw:hover{border-color:var(--cu)}
+.sec:not(.dark) .gspr>div.res{background:#20150E;border-color:#20150E}
+.sec:not(.dark) .gspr>div.res dt{color:#5EDBA5}.sec:not(.dark) .gspr>div.res dd{color:#F3EDE4}
+.sec:not(.dark) .ladder>div:nth-child(5){background:#20150E;border-color:#20150E;color:#F3EDE4}
+.sec:not(.dark) .ladder>div:nth-child(5) em{color:#BDAFA0}
+.sec:not(.dark) .stat.hot{background:#20150E;border-color:#20150E;color:#5EDBA5}.sec:not(.dark) .stat.hot span{color:#BDAFA0}
+.sec:not(.dark) .job.now{border-color:var(--cu);background:rgba(165,98,45,.07)}
+.sec:not(.dark) .tab[aria-selected="true"]{background:#20150E;border-color:#20150E;color:#5EDBA5}
+.sec:not(.dark) .tab:hover{border-color:var(--cu)}
+.sec:not(.dark) .btn.ghost:hover{border-color:var(--cu);color:var(--cu)}
+.sec:not(.dark) .refbtn:hover{border-color:var(--cu);color:var(--cu)}
+.sec:not(.dark) .open{color:var(--cu)}
+.fcase{background:linear-gradient(160deg,#3a2515,#20150E 75%);border-color:rgba(196,122,58,.4)}
+.fcase::after{background:radial-gradient(circle,rgba(196,122,58,.45),transparent 65%)}
+
+/* hero (light) */
+.hero{align-items:stretch}
+.hero::before{background-image:linear-gradient(rgba(60,40,20,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(60,40,20,.055) 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse 80% 90% at 30% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 80% 90% at 30% 40%,#000 20%,transparent 75%)}
+.hero::after{background:radial-gradient(540px circle at var(--mx,28%) var(--my,34%),rgba(196,122,58,.16),transparent 62%)}
+.hero-copy{padding-bottom:36px;align-self:center}
+.status{border-color:rgba(42,122,92,.35);background:rgba(42,122,92,.08);color:#2A7A5C}
+.status .dot{background:#2A7A5C}
+h1 em{color:var(--cu);text-shadow:none}
+.role{color:var(--ink)}
+.pcard{position:relative;align-self:end;margin-bottom:28px;border-radius:20px;overflow:hidden;aspect-ratio:4/5;min-width:0;
+  background:radial-gradient(62% 52% at 50% 34%,rgba(205,128,60,.7),rgba(205,128,60,.18) 58%,transparent 78%),#20150E;
+  box-shadow:0 30px 60px -30px rgba(60,35,15,.7);border:1px solid rgba(60,40,20,.25)}
+.pcard>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;z-index:1}
+.pcard .ph{position:absolute;inset:0;margin:0;justify-content:center}
+.pcard.has .ph{display:none}
+.ptag{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:9px 13px;border-radius:99px;background:rgba(32,21,14,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(243,237,228,.24);color:#F3EDE4;font:500 10px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;animation:bob 6s ease-in-out infinite}
+.ptag::before{content:"";width:6px;height:6px;border-radius:50%;background:#5EDBA5;flex:none}
+.ptag.p1{left:14px;top:5%}
+.ptag.p2{right:14px;top:14%;animation-delay:-2s}
+.ptag.p3{left:14px;bottom:15%;animation-delay:-4s}
+.ptag.p4{right:14px;bottom:6%;animation-delay:-1s}
+.strip{background:rgba(255,253,249,.7)}
+.st.hot b{color:var(--cu)}
+
+/* sidebar (espresso) */
+.side{background:#20150E;border-color:#33251A}
+.av{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--cu);flex:none;background:#2A1D14}
+.brand{padding-bottom:16px}
+.nav{padding:2px 0;gap:clamp(0px,.3vh,4px)}
+.rail{display:none}
+.nav a{min-height:clamp(34px,4.7vh,46px);border-radius:12px;padding:0 14px}
+.nav a[aria-current="true"]{background:rgba(94,219,165,.12);color:#5EDBA5}
+.nav a[aria-current="true"]::before{left:0;top:20%;bottom:20%;width:3px;height:auto;margin:0;border-radius:3px;background:#5EDBA5;box-shadow:none}
+.nav .grp{padding-top:clamp(8px,1.8vh,18px)}
+.avail{background:linear-gradient(160deg,#3a2515,#2A1D14);border-color:rgba(196,122,58,.4)}
+.avail small{color:#5EDBA5}
+.avail .mail{display:block;font:500 11px/1.3 var(--f);color:#BDAFA0;margin:0 0 12px;word-break:break-all}
+.avail p{display:none}.avail small{margin-bottom:10px}
+
+/* logo strip: never pauses, tiles are inert */
+.marq,.marq *{pointer-events:none;user-select:none}
+.tile img{-webkit-user-drag:none}
+
+/* training poster */
+.loom{background:radial-gradient(55% 90% at 82% 45%,rgba(205,128,60,.55),transparent 70%),#20150E;border-color:#3A2B20}
+.poster{position:absolute;inset:0}
+.pt{position:absolute;left:clamp(18px,5%,52px);top:clamp(18px,9%,44px);max-width:54%;display:flex;flex-direction:column;gap:12px;text-align:left}
+.pt small{font:500 10px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;color:#5EDBA5}
+.pt b{font:800 clamp(20px,3.6vw,46px)/1.02 var(--f);letter-spacing:-.05em;text-transform:uppercase;color:#F3EDE4}
+.pt em{font-style:normal;font:400 clamp(11.5px,1.1vw,14px)/1.6 var(--fb);color:#BDAFA0;max-width:40ch}
+.loomplay img.pp{position:absolute;inset:auto 3% 0 auto;height:97%;width:auto;max-width:none;object-fit:contain;z-index:1}
+.loomplay{display:block}
+.loomplay .pb{position:absolute;left:clamp(20px,5%,52px);bottom:clamp(58px,18%,100px);width:80px;height:80px;z-index:3}
+.loomplay img.real{display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.loomplay img.real.on{display:block}
+.loomlabel{z-index:4;left:clamp(20px,5%,52px)}
+.chapters{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chapters li{font:500 10.5px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);border-radius:99px;padding:10px 14px;color:var(--ink-2)}
+.chapters li b{color:var(--acc-t);margin-right:8px}
+
+@media (max-width:1180px){.pcard{max-width:460px;width:100%;margin:8px auto 28px}}
+@media (max-width:620px){
+  .ptag{font-size:9px;padding:8px 11px}.ptag.p2,.ptag.p4{display:none}
+  .pt{max-width:60%;gap:8px}.pt em{display:none}
+  .loomplay .pb{width:54px;height:54px;bottom:18px}.loomlabel{display:none}.pt b{font-size:18px}.loomplay .pb svg{width:22px;height:22px}
+}
+@media (prefers-reduced-motion:reduce){.ptag{animation:none}}
+
+/* ===== v4 ===== */
+.av{width:76px;height:76px;border-radius:16px;border:1px solid rgba(196,122,58,.7);object-fit:cover}
+.brand{gap:14px}
+.brand b{font-size:14px}.brand span{font-size:11px}
+@media (max-width:920px){.topbar .av{width:52px;height:52px;border-radius:12px}}
+
+/* hero: photo sits straight on the cream */
+.pcard{background:radial-gradient(52% 44% at 50% 36%,rgba(196,122,58,.3),rgba(196,122,58,.08) 60%,transparent 76%);border:0;box-shadow:none;border-radius:0;overflow:visible;margin-bottom:0}
+.pcard>img{filter:drop-shadow(0 18px 26px rgba(60,35,15,.28)) drop-shadow(0 0 1px rgba(60,35,15,.5))}
+@media (max-width:1180px){.pcard{margin:8px auto 0}}
+
+/* timeframes and big numbers */
+.whenbig{font:800 clamp(18px,2vw,26px)/1.1 var(--f);text-transform:uppercase;letter-spacing:-.03em;color:#E8A468;margin-top:-6px;position:relative;z-index:1}
+.shot figcaption span.when{font:800 clamp(22px,2.1vw,30px)/1.05 var(--f);letter-spacing:-.05em;text-transform:uppercase;color:var(--cu);margin:2px 0 4px}
+.sec.dark .shot figcaption span.when{color:#5EDBA5}
+.gspr .bignum{display:block;font:800 clamp(32px,3.4vw,50px)/1 var(--f);letter-spacing:-.06em;margin-bottom:10px;color:#5EDBA5}
+.sec.dark .gspr .res .bignum{color:#0B0B0B}
+
+/* influencer message tabs */
+.mtabs{display:grid;grid-template-columns:260px minmax(0,1fr);gap:14px;margin-top:20px;align-items:start}
+.mt-list{display:flex;flex-direction:column;gap:8px}
+.mt-tab{all:unset;box-sizing:border-box;display:grid;grid-template-columns:auto 1fr;grid-template-areas:"i b" "i s";column-gap:14px;align-items:center;padding:14px 16px;min-height:66px;border-radius:14px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:border-color .18s,background .18s,color .18s}
+.mt-tab i{grid-area:i;font:700 12px/1 var(--f);font-style:normal;color:var(--cu);letter-spacing:.12em}
+.mt-tab b{grid-area:b;font:700 13px/1.25 var(--f);text-transform:uppercase}
+.mt-tab small{grid-area:s;font:500 10px/1.4 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.mt-tab:hover{border-color:var(--cu)}
+.mt-tab:focus-visible{outline:2px solid var(--cu);outline-offset:2px}
+.mt-tab[aria-selected="true"]{background:#20150E;border-color:#20150E;color:#F3EDE4}
+.mt-tab[aria-selected="true"] i{color:#5EDBA5}.mt-tab[aria-selected="true"] small{color:#BDAFA0}
+.mt-panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:18px}
+.mt-panel[hidden]{display:none}
+.bubble{background:#20150E;color:#F3EDE4;border-radius:20px 20px 20px 4px;padding:18px 22px;max-width:580px}
+.bubble .who{display:block;font:500 10px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:#5EDBA5;margin-bottom:10px}
+.bubble p{font-size:15.5px;line-height:1.6}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips li{border:1px solid var(--line);background:var(--soft);border-radius:99px;padding:10px 15px;font:500 13px/1.3 var(--fb);color:var(--ink-2)}
+.chips li b{font:800 12px/1 var(--f);color:var(--cu);margin-right:7px}
+.mt-panel details{border-top:1px dashed var(--line);padding-top:14px}
+.mt-panel summary{cursor:pointer;font:700 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--acc-t);padding:6px 0;min-height:32px;display:flex;align-items:center}
+.mt-panel summary:hover{color:var(--cu)}
+.mt-panel .full{margin-top:10px;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--ink-2);max-width:620px}
+.mt-panel .full ul{list-style:disc;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+@media (max-width:920px){.mtabs{grid-template-columns:1fr}.mt-list{flex-direction:row;overflow-x:auto;padding-bottom:2px}.mt-tab{min-width:190px}}
+
+/* creative: stairs + gallery stage */
+.temp{display:flex;align-items:center;gap:14px;margin-top:20px;font:500 10px/1 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.temp i{flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,#EBD3B3,var(--cu),#20150E)}
+.ladder{margin-top:12px}
+.ladder .lv{display:block;font:800 32px/1 var(--f);letter-spacing:-.06em;color:var(--cu);margin-bottom:6px}
+.ladder>div:nth-child(1){background:#FFFDF9}
+.ladder>div:nth-child(2){background:#F7EBDC}
+.ladder>div:nth-child(3){background:#EFD9BF}
+.ladder>div:nth-child(4){background:#E5C39B}
+.ladder>div:nth-child(2) em,.ladder>div:nth-child(3) em,.ladder>div:nth-child(4) em{color:var(--ink-2)}
+.ladder>div:nth-child(5) .lv{color:#5EDBA5}
+.stage{margin-top:16px;padding:18px;border-radius:18px;background:linear-gradient(180deg,#EFE2CF,#F3EAD9);border:1px solid #E3D3BA}
+.stage .grid{margin-top:0}.stage .grid+.grid{margin-top:14px}
+.stg{position:absolute;left:10px;top:10px;z-index:2;background:rgba(32,21,14,.84);color:#F3EDE4;border-radius:99px;padding:7px 11px;font:500 9.5px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;pointer-events:none}
+.stg b{color:#5EDBA5;margin-right:7px}
+.shot-btn.hasjob{overflow:hidden}
+.jobline{position:absolute;left:0;right:0;bottom:0;padding:38px 14px 14px;background:linear-gradient(transparent,rgba(32,21,14,.94));color:#F3EDE4;font:500 12.5px/1.4 var(--fb);transform:translateY(100%);transition:transform .3s cubic-bezier(.2,.7,.2,1);z-index:3;pointer-events:none}
+.shot-btn:hover .jobline,.shot-btn:focus-visible .jobline{transform:none}
+@media (hover:none){.jobline{display:none}}
+#creative .zoom{top:auto;bottom:10px}
+
+/* psychology */
+#psychology .grid{counter-reset:fw}
+#psychology .fw{counter-increment:fw}
+#psychology .fw::before{content:counter(fw,decimal-leading-zero);font:800 36px/1 var(--f);letter-spacing:-.06em;color:var(--cu);margin-bottom:4px}
+.annot{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:14px;margin-top:20px;align-items:center}
+.aimg{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow)}
+.aimg img{width:100%;height:auto}
+.pin{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:var(--cu);color:#fff;display:grid;place-items:center;font:800 13px/1 var(--f);box-shadow:0 0 0 5px rgba(165,98,45,.3);animation:pulsecu 2.4s infinite}
+@keyframes pulsecu{0%{box-shadow:0 0 0 0 rgba(165,98,45,.55)}70%{box-shadow:0 0 0 10px rgba(165,98,45,0)}100%{box-shadow:0 0 0 0 rgba(165,98,45,0)}}
+.alist{display:flex;flex-direction:column;gap:10px}
+.alist li{display:grid;grid-template-columns:34px 1fr;gap:2px 12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.alist i{grid-row:1/3;width:30px;height:30px;border-radius:50%;background:var(--cu);color:#fff;font:800 13px/30px var(--f);text-align:center;font-style:normal}
+.alist b{font:700 13px/1.3 var(--f);text-transform:uppercase}
+.alist span{font-size:13.5px;color:var(--ink-2);line-height:1.6}
+@media (max-width:920px){.annot{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.pin{animation:none}}
+
+/* always-visible "click to enlarge" hint */
+.zoom{width:auto;height:32px;padding:0 12px 0 10px;gap:8px;opacity:1;display:flex;align-items:center;border-radius:99px;background:rgba(11,11,11,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#F3EDE4;font:500 9.5px/1 var(--f);letter-spacing:.1em;text-transform:uppercase;transition:background .15s,color .15s;pointer-events:none}
+.zoom::after{content:"Click to enlarge"}
+[data-lb-video] .zoom::after{content:"Click to play"}
+@media (hover:none){.zoom::after{content:"Tap to enlarge"}[data-lb-video] .zoom::after{content:"Tap to play"}}
+.shot-btn:hover .zoom,.shot-btn:focus-visible .zoom{background:#5EDBA5;color:#0B0B0B}
+.shot-btn:hover .zoom svg{stroke:#0B0B0B}
+/* v5 */
+.ptag{background:rgba(32,21,14,.94);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 6px 16px rgba(32,21,14,.25)}
+#creative .zoom{height:26px;padding:0 10px 0 8px;font-size:8.5px;right:8px;bottom:8px;background:rgba(11,11,11,.7)}
+#creative .zoom svg{width:13px;height:13px}
+/* v6 */
+/* featured card: bigger number and stats */
+.fcase .big{font-size:clamp(60px,7.6vw,112px)}
+.whenbig{font-size:clamp(14px,1.4vw,18px);letter-spacing:.02em;margin-top:2px}
+.fcase .meta{gap:28px}
+.fcase .meta b{font-size:clamp(28px,3vw,40px);margin-bottom:6px;color:#5EDBA5}
+.fcase .meta div{font-size:11px;color:#c3d3c9}
+/* ROAS rows readable */
+.crow2{grid-template-columns:minmax(0,230px) minmax(0,1fr) 78px;padding:12px 0}
+.crow2 .lab{font-size:14px;color:var(--ink);font-weight:600}
+.crow2 .lab small{font-size:12.5px;color:var(--ink-2);margin-top:3px;font-weight:500;letter-spacing:.02em}
+.crow2 .val{font-size:20px}
+.crow2 .bar{height:14px}
+/* result cards: amount first */
+.shot figcaption b{display:flex;flex-direction:column;gap:2px;order:1}
+.shot figcaption b .amt{font:800 clamp(30px,3vw,44px)/1 var(--f);letter-spacing:-.06em;font-style:normal;color:var(--cu);display:block}
+.sec.dark .shot figcaption b .amt{color:#5EDBA5}
+.shot figcaption b .rest{font:600 13.5px/1.4 var(--f);color:var(--ink)}
+.shot figcaption span.when{order:2;font:500 11px/1.2 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:4px 0 2px}
+.sec.dark .shot figcaption span.when{color:#E8A468}
+.shot figcaption span:not(.tag):not(.when){order:3}
+#sales .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* influencer ownership strip */
+.owns{margin-top:22px;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#20150E;color:#F3EDE4;border-radius:var(--r-md);padding:22px 26px}
+.owns .ow-t{max-width:440px}.owns .ow-t b{display:block;font:800 clamp(18px,1.9vw,24px)/1.2 var(--f);letter-spacing:-.03em;color:#5EDBA5}
+.owns .ow-t span{display:block;margin-top:8px;font:400 14px/1.6 var(--fb);color:#d9cfc2}
+.owns .ow-c{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0;flex:1;justify-content:flex-end;min-width:240px}
+.owns .ow-c li{font:500 11px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:9px 12px;border-radius:99px;border:1px solid rgba(94,219,165,.45);color:#F3EDE4}
+.owns .ow-c li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#5EDBA5;margin-right:8px}
+/* journey timeline */
+.jny{list-style:none;margin:30px 0 0;padding:0 0 0 0;position:relative}
+.jny::before{content:"";position:absolute;left:109px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cu),rgba(165,98,45,.15))}
+.jny li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:28px;position:relative;padding-bottom:18px}
+.jny li::before{content:"";position:absolute;left:103px;top:10px;width:14px;height:14px;border-radius:50%;background:var(--card);border:3px solid var(--cu);box-sizing:border-box}
+.jny time{font:800 22px/1.2 var(--f);letter-spacing:-.04em;color:var(--cu);text-align:right;padding-top:4px}
+.jny .jc{margin-left:30px;background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:18px 22px}
+.jny h3{font:700 15px/1.35 var(--f);text-transform:uppercase;letter-spacing:-.005em}
+.jny p{margin-top:8px;font:400 14px/1.65 var(--fb);color:var(--ink-2)}
+.jny .jt{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.jny .jt span{font:500 10px/1 var(--f);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:99px;background:var(--acc-soft);color:var(--acc-t)}
+.jny li.low .jc{border-style:dashed}
+.jny li.now::before{background:#5EDBA5;border-color:#20150E;box-shadow:0 0 0 5px rgba(94,219,165,.35)}
+.jny li.now .jc{background:#20150E;border-color:#20150E}
+.jny li.now h3{color:#F3EDE4}.jny li.now p{color:#d9cfc2}
+.jny li.now time{color:#2A7A5C}
+.jny li.now .btn{margin-top:14px}
+@media (max-width:700px){
+  .jny::before{left:7px}.jny li{grid-template-columns:1fr;gap:6px;padding-left:30px}
+  .jny li::before{left:0}.jny time{text-align:left;padding:0}.jny .jc{margin-left:0}
+  .crow2{grid-template-columns:minmax(0,1fr) 64px}.crow2 .val{font-size:17px}
+  #sales .stats{grid-template-columns:1fr}
+}
+.fcase .meta{flex-wrap:nowrap;gap:clamp(14px,2vw,26px)}
+.fcase .meta b{font-size:clamp(22px,2.3vw,34px)}
+.jny li.now time{font-size:16px;line-height:1.15;padding-top:2px}
+/* v7 wistia */
+.vid2{margin-top:44px}
+.vid2 .vsub{margin:6px 0 0;font:400 15px/1.6 var(--fb);color:var(--ink-2)}
+.wist{margin-top:20px;border-radius:var(--r-md);overflow:hidden;background:#0B0B0B;border:1px solid #3A2B20;aspect-ratio:16/9;position:relative}
+.wist wistia-player{display:block;width:100%;height:100%}
+.wist{aspect-ratio:auto}.wist wistia-player{height:auto}
+</style>
+</head>
+<body>
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js")}catch(e){}</script>
+<div class="prog" aria-hidden="true"><i id="progBar"></i></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-ads" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.5c3 0 5 1.8 5 4.5"/></symbol>
+  <symbol id="i-img" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z"/></symbol>
+  <symbol id="i-job" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+</svg>
+
+<div class="shell">
+
+  <!-- mobile top bar -->
+  <div class="topbar">
+    <div class="brand"><img class="av" src="media/avatar.webp" width="240" height="240" alt=""><div><b>MJ Alshubi</b><span>Sales &amp; Marketing Strategist</span></div></div>
+    <button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="side"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+  <div class="scrim" id="scrim"></div>
+
+  <!-- sidebar -->
+  <aside class="side" id="side" aria-label="Portfolio sections">
+    <div class="brand"><img class="av" src="media/avatar.webp" width="240" height="240" alt=""><div><b>MJ Alshubi</b><span>Sales &amp; Marketing Strategist</span></div></div>
+    <div class="navscroll">
+    <nav class="nav" id="nav">
+      <span class="rail" aria-hidden="true"><i></i></span>
+      <a href="#home" aria-current="true"><em>00</em>Home</a>
+      <div class="grp">Strategy</div>
+      <a href="#paid-ads"><em>01</em>Paid Ads</a>
+      <a href="#email"><em>02</em>Email</a>
+      <a href="#influencer"><em>03</em>Influencer</a>
+      <a href="#creative"><em>04</em>Ad Creative</a>
+      <div class="grp">Sales &amp; Mindset</div>
+      <a href="#sales"><em>05</em>Sales</a>
+      <a href="#psychology"><em>06</em>Psychology</a>
+      <div class="grp">More</div>
+      <a href="#web"><em>07</em>Web Dev</a>
+      <a href="#training"><em>08</em>Training</a>
+      <a href="#experience"><em>09</em>Experience</a>
+      <a href="#contact"><em>10</em>Contact</a>
+    </nav>
+    </div>
+    <div class="avail">
+      <small><span class="dot"></span>Open to work</small>
+      <p>Full-time sales &amp; marketing roles</p>
+      <span class="mail">mj.marketseo@gmail.com</span>
+      <a class="btn" href="#contact">Get in touch <svg><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="social"><a href="https://www.instagram.com/mjpreneur" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><use href="#i-ig"/></svg>@mjpreneur</a></div>
+  </aside>
+
+  <main class="main" id="main">
+
+    <!-- HERO -->
+    <section class="sec hero" id="home">
+      <div class="hero-copy">
+        <div class="status"><span class="dot"></span>Open to full-time roles · Remote</div>
+        <h1>MJ<em>Alshubi</em></h1>
+        <div class="role">Sales &amp; Marketing Strategist</div>
+        <p class="pitch">I turn buyer psychology into revenue. Paid ads, email, influencer programs and sales calls, built on strategy that has produced more than $65M in tracked client sales.</p>
+        <div class="cta">
+          <a class="btn" href="#paid-ads">View my work <svg><use href="#i-arrow"/></svg></a>
+          <a class="btn ghost" href="#training"><svg><use href="#i-play"/></svg>Watch the training</a>
+        </div>
+      </div>
+      <div class="pcard" id="portrait">
+        <div class="ph" aria-hidden="true"><svg viewBox="0 0 200 220"><circle cx="100" cy="62" r="40"/><path d="M20 220c0-52 36-84 80-84s80 32 80 84z"/></svg><span>Photo goes here</span></div>
+        <img src="media/portrait.webp" width="760" height="1140" alt="MJ Alshubi" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        <span class="ptag p1">Buyer psychology</span>
+        <span class="ptag p2">Email &amp; flows</span>
+        <span class="ptag p3">Paid media strategy</span>
+        <span class="ptag p4">Sales coaching</span>
+      </div>
+      <div class="strip">
+        <div class="st hot"><b data-count>$65M+</b><span>Tracked client revenue</span></div>
+        <div class="st"><b data-count>2,000+</b><span>Sales calls taken</span></div>
+        <div class="st"><b data-count>200+</b><span>Students coached</span></div>
+        <div class="st"><b data-count>8 yrs</b><span>In paid ads &amp; sales</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="tools" aria-label="Tools I work in" style="padding-block:26px 28px;overflow:hidden">
+      <div class="eyebrow"><span>Tools I work in</span><span class="ctr">Ads · Email · CRM · Edit</span></div>
+      <div class="marq" id="marq">
+        <div class="mtrack">
+          <ul class="mgroup"><li class="tile"><img src="media/logos/meta.webp" width="459" height="120" alt="Meta Ads" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/google-ads.webp" width="574" height="120" alt="Google Ads" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/tiktok.webp" width="515" height="120" alt="TikTok Ads" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/klaviyo.webp" width="371" height="120" alt="Klaviyo" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/shopify.webp" width="381" height="120" alt="Shopify" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/highlevel.webp" width="475" height="120" alt="GoHighLevel" loading="eager" decoding="async"></li><li class="tile icon"><img src="media/logos/davinci.webp" width="120" height="120" alt="DaVinci Resolve" loading="eager" decoding="async"><span>DaVinci Resolve</span></li><li class="tile"><img src="media/logos/trello.webp" width="511" height="120" alt="Trello" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/airtable.webp" width="482" height="120" alt="Airtable" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/slack.webp" width="419" height="120" alt="Slack" loading="eager" decoding="async"></li></ul>
+          <ul class="mgroup" aria-hidden="true"><li class="tile"><img src="media/logos/meta.webp" width="459" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/google-ads.webp" width="574" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/tiktok.webp" width="515" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/klaviyo.webp" width="371" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/shopify.webp" width="381" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/highlevel.webp" width="475" height="120" alt="" loading="eager" decoding="async"></li><li class="tile icon"><img src="media/logos/davinci.webp" width="120" height="120" alt="" loading="eager" decoding="async"><span>DaVinci Resolve</span></li><li class="tile"><img src="media/logos/trello.webp" width="511" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/airtable.webp" width="482" height="120" alt="" loading="eager" decoding="async"></li><li class="tile"><img src="media/logos/slack.webp" width="419" height="120" alt="" loading="eager" decoding="async"></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAID ADS -->
+    <section class="sec dark" id="paid-ads">
+      <div class="eyebrow"><span>01 · Paid ads strategy</span><span class="ctr">01 / 10</span></div>
+      <h2>$65M+ in tracked client revenue <em>from paid media</em></h2>
+      <p class="lede">Eight years of buying traffic on Meta, Google, TikTok and native platforms for ecommerce brands, info-product businesses and local brick-and-mortar companies.</p>
+      <dl class="gspr">
+        <div><dt>Goal</dt><dd>Grow profitable revenue for ecommerce, info-product and local businesses.</dd></div>
+        <div><dt>Strategy</dt><dd>Separate prospecting from retargeting, test audiences and creative on their own, and judge every campaign on ROAS and cost per purchase.</dd></div>
+        <div><dt>Process</dt><dd>Read the same numbers across several windows: yesterday for problems, 7 to 30 days for trends, 90 days and year to date for the full picture.</dd></div>
+        <div class="res"><dt>Result</dt><dd><span class="bignum">$65M+</span>in tracked client revenue across Meta, Google, TikTok, native ads and email.</dd></div>
+      </dl>
+
+      <div class="feature">
+        <div class="fcase">
+          <span class="tag">Featured result</span>
+          <div class="big">$1.15M</div>
+          <div class="whenbig">in 11 months</div>
+          <p>in tracked sales from <b>$122.8K</b> of Meta ad spend. One ecommerce account, one campaign window, 28,020 purchases.</p>
+          <div class="meta"><div><b>9.40x</b>ROAS</div><div><b>28,020</b>Purchases</div><div><b>$122.8K</b>Ad spend</div></div>
+        </div>
+        <div class="chart" id="roas">
+          <div class="chead"><b>Return on ad spend</b><span>Revenue per $1 of ad spend, by campaign</span></div>
+          <div class="crow2"><span class="lab">Ecommerce · Meta<small>$2.5K spend</small></span><span class="bar"><i style="--v:15.95"></i></span><span class="val">15.95x</span></div><div class="crow2"><span class="lab">Two-day window<small>$7.8K spend</small></span><span class="bar"><i style="--v:11.23"></i></span><span class="val">11.23x</span></div><div class="crow2"><span class="lab">Ecommerce · Meta<small>$122.8K spend</small></span><span class="bar"><i style="--v:9.4"></i></span><span class="val">9.40x</span></div><div class="crow2"><span class="lab">Higher-ticket offer<small>$3.8K spend</small></span><span class="bar"><i style="--v:8.82"></i></span><span class="val">8.82x</span></div><div class="crow2"><span class="lab">Lead gen + sales<small>$886 spend</small></span><span class="bar"><i style="--v:8.08"></i></span><span class="val">8.08x</span></div><div class="crow2"><span class="lab">Ecommerce · Meta, Q4 2021<small>$77.4K spend</small></span><span class="bar"><i style="--v:7.2"></i></span><span class="val">7.20x</span></div>
+          <p class="note">Each bar is a separate campaign window from Ads Manager. ROAS = revenue divided by ad spend.</p>
+        </div>
+      </div>
+
+      <h3 class="sub">Campaign results</h3>
+      <p class="subp">Pulled straight from Ads Manager. Click any card to enlarge.</p>
+      <div class="grid g3">
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/res-122k.webp" data-cap="$1.15M in sales on $122.8K spend in 11 months. 9.40 ROAS, 28,020 purchases."><div class="frame"><img src="media/res-122k.webp" alt="Meta Ads results: $122,793.99 spent, 28,020 purchases, $1,154,708.67 in sales, 9.40 ROAS" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Ecommerce · Meta</span><span class="when">In 11 months</span><b><em class="amt">$1.15M</em><span class="rest">in sales on $122.8K spend</span></b><span>9.40 ROAS across 28,020 purchases.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/res-77k.webp" data-cap="$557K in sales on $77.4K spend in 2 months. 7.20 ROAS, 1,616 purchases."><div class="frame"><img src="media/res-77k.webp" alt="Meta Ads results: $77,356.91 spent, 1,616 purchases, $557,011.92 in sales, 7.20 ROAS" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Ecommerce · Meta</span><span class="when">In 2 months</span><b><em class="amt">$557K</em><span class="rest">in sales on $77.4K spend</span></b><span>7.20 ROAS across 1,616 purchases.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/res-2day.webp" data-cap="$87.7K in sales in two days. $7.8K spend, 11.23 ROAS, 1,873 purchases at $4.17 each."><div class="frame"><img src="media/res-2day.webp" alt="Meta Ads results over two days: $7,806.08 spent, 1,873 purchases, $87,665.18 in sales, 11.23 ROAS" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Two-day window</span><span class="when">In 2 days</span><b><em class="amt">$87.7K</em><span class="rest">in sales</span></b><span>$7.8K spend, 11.23 ROAS, $4.17 per purchase.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/res-2k.webp" data-cap="$39.9K in sales on $2.5K spend in about 6 weeks. 15.95 ROAS, 238 purchases."><div class="frame"><img src="media/res-2k.webp" alt="Meta Ads results: $2,499.02 spent, 238 purchases, $39,854.77 in sales, 15.95 ROAS" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Ecommerce · Meta</span><span class="when">In about 6 weeks</span><b><em class="amt">$39.9K</em><span class="rest">in sales on $2.5K spend</span></b><span>15.95 ROAS from 238 purchases.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/res-leads.webp" data-cap="1,122 leads at $0.79 each and 117 sales. $886 spend, $7.2K revenue, 8.08 ROAS."><div class="frame"><img src="media/res-leads.webp" alt="Meta Ads results: $886.43 spent, 1,122 leads at $0.79, 117 purchases, $7,166.70 in sales, 8.08 ROAS" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Lead gen + sales</span><span class="when">In 2 months</span><b><em class="amt">1,122</em><span class="rest">leads at $0.79</span></b><span>117 sales and 8.08 ROAS on $886 spend.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/res-3k.webp" data-cap="$33.4K in sales on $3.8K spend. 8.82 ROAS, 53 purchases at $71.54 each."><div class="frame"><img src="media/res-3k.webp" alt="Meta Ads results: $3,791.61 spent, 53 purchases, $33,438.99 in sales, 8.82 ROAS" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Higher-ticket offer</span><span class="when">One campaign</span><b><em class="amt">$33.4K</em><span class="rest">in sales on $3.8K spend</span></b><span>8.82 ROAS at $71.54 per purchase.</span></figcaption>
+        </figure>
+      </div>
+
+      <h3 class="sub">Proof, straight from the accounts</h3>
+      <p class="subp">Screen recordings of live reporting from Meta, Google, Shopify and an attribution dashboard. Every number above traces back to a screen like these.</p>
+      <div class="grid g2">
+        <figure class="shot">
+          <button class="shot-btn" data-lb-video="media/v-meta.mp4" data-cap="Meta Ads Manager across 30 days, a month and a quarter."><div class="frame wide"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-meta.webp" src="media/v-meta.mp4" aria-label="Screen recording of Meta Ads Manager"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Meta Ads Manager</span><span class="when">In 1 quarter</span><b><em class="amt">6.75 to 7.51</em><span class="rest">ROAS across every window</span></b><span>Quarter view: $37.1K spent, $279K in purchase value.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb-video="media/v-triplewhale.mp4" data-cap="Attribution dashboard: yesterday, 7, 30 and 90 days, and year to date."><div class="frame wide"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-triplewhale.webp" src="media/v-triplewhale.mp4" aria-label="Screen recording of an attribution dashboard"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Attribution dashboard</span><span class="when">In 3 months</span><b><em class="amt">$314.8K</em><span class="rest">from $44.4K of ad spend</span></b><span>3,707 purchases at a $12.00 CPA, 7.08 ROAS.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb-video="media/v-google.mp4" data-cap="Google Ads overview: yesterday, 7, 14 and 30 days, and year to date."><div class="frame wide"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-google.webp" src="media/v-google.mp4" aria-label="Screen recording of Google Ads"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Google Ads</span><span class="when">In 11 months</span><b><em class="amt">$504K</em><span class="rest">conversion value on $129K cost</span></b><span>174K clicks and 5.81K conversions.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb-video="media/v-shopify.mp4" data-cap="Store analytics: yesterday, 30 days, 90 days and year to date."><div class="frame wide"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-shopify.webp" src="media/v-shopify.mp4" aria-label="Screen recording of Shopify analytics"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Shopify</span><span class="when">In 11 months</span><b><em class="amt">$1.8M</em><span class="rest">in store sales</span></b><span>Up 250%, with 1.2M sessions.</span></figcaption>
+        </figure>
+      </div>
+      <p class="fine">Figures come from client ad and store accounts. Client names are removed.</p>
+    </section>
+
+    <!-- EMAIL -->
+    <section class="sec" id="email">
+      <div class="eyebrow"><span>02 · Email marketing strategy</span><span class="ctr">02 / 10</span></div>
+      <h2>A planned calendar, <em>not random sends</em></h2>
+      <p class="lede">I run email as a revenue channel with a schedule, a segment and a goal behind every send.</p>
+      <dl class="gspr">
+        <div><dt>Goal</dt><dd>Turn an existing list into repeat revenue without paying for the click again.</dd></div>
+        <div><dt>Strategy</dt><dd>Plan every campaign on one calendar. Pair one-off launches with automated flows, and resend the winners to the people who opened.</dd></div>
+        <div><dt>Process</dt><dd>Each launch gets a teaser, a release, a colour or size breakdown and a resend to openers. Shipping news and restocks are segmented by region and by interest.</dd></div>
+        <div class="res"><dt>Result</dt><dd><span class="bignum">$676K</span>in Klaviyo-attributed revenue year to date for one ecommerce brand: $277K from campaigns, $399K from flows.</dd></div>
+      </dl>
+
+      <div class="grid g2">
+        <figure class="shot">
+          <button class="shot-btn" data-lb-video="media/v-klaviyo.mp4" data-cap="Klaviyo overview dashboard across week, month, year to date and 90 days."><div class="frame wide"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-klaviyo.webp" src="media/v-klaviyo.mp4" aria-label="Screen recording of the Klaviyo overview dashboard"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Klaviyo</span><span class="when">Year to date</span><b><em class="amt">$676K</em><span class="rest">attributed revenue</span></b><span>41% from campaigns and 59% from flows, so automation earns more than broadcasts.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/em-calendar.webp" data-cap="Campaign calendar: graphics due, launch date, approval, sent, subject line."><div class="frame wide"><img src="media/em-calendar.webp" alt="Email campaign calendar with graphics due dates, launch dates, approval and sent status" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Campaign calendar</span><b>Every send has a due date and an owner</b><span>Graphics due, launch date, approval, sent status and subject line, plus resends to openers.</span></figcaption>
+        </figure>
+      </div>
+
+      <h3 class="sub">An always-on flow: back-in-stock alerts</h3>
+      <p class="subp">Sold-out products turn into a list of buyers who already said yes. When the item returns, they hear first.</p>
+      <ol class="flow" style="--n:4">
+        <li><b>Shopper hits sold out</b><span>The product page offers a "Notify when available" button instead of a dead end.</span></li>
+        <li><b>Picks size and channel</b><span>They choose their size, then email or text.</span></li>
+        <li><b>Subscribes in seconds</b><span>One field, a clear promise, and a privacy line to remove doubt.</span></li>
+        <li><b>Alert on restock</b><span>They are told the moment it returns, with urgency: it sold out fast the first time.</span></li>
+      </ol>
+
+      <h3 class="sub">What the calendar ships</h3>
+      <div class="grid g3">
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/em-499.webp" data-cap="Pre-Black Friday sale email graphic."><div class="frame banner"><img src="media/em-499.webp" alt="Pre-Black Friday email graphic: $4.99 hijabs, 40% off sitewide" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Offer-led</span><b>Pre-Black Friday</b><span>One price point up front, the sitewide discount in support.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb-video="media/v-prebf.mp4" data-cap="Animated sale email header."><div class="frame banner"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-prebf.webp" src="media/v-prebf.mp4" aria-label="Animated sale email header"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Animated header</span><b>Motion in the inbox</b><span>A moving header to pull the eye in a crowded inbox.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/em-2for10.webp" data-cap="Bundle offer email graphic."><div class="frame banner"><img src="media/em-2for10.webp" alt="Bundle offer email graphic: 2 for $10 hijab and accessories" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Bundle</span><b>2 for $10</b><span>A simple bundle that lifts items per order.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- INFLUENCER -->
+    <section class="sec" id="influencer">
+      <div class="eyebrow"><span>03 · Influencer marketing strategy</span><span class="ctr">03 / 10</span></div>
+      <h2>Creators as <em>a repeatable channel</em></h2>
+      <p class="lede">I treat influencers as a pipeline with stages, scripts and tracking, so content and sales come back every month and not by luck.</p>
+      <div class="owns"><div class="ow-t"><b>I handle all of it, end to end.</b><span>From vetting to tracking and reuse, and everything in between, one person owns the whole channel.</span></div>
+        <ul class="ow-c"><li>Vetting</li><li>Outreach</li><li>Terms</li><li>Shipping</li><li>Scripts</li><li>Tracking</li><li>Reuse</li></ul></div>
+      <dl class="gspr">
+        <div><dt>Goal</dt><dd>Build a steady supply of trusted creator content and tracked sales.</dd></div>
+        <div><dt>Strategy</dt><dd>Give new creators, past collaborators and affiliates their own message and terms, so each conversation starts in the right place.</dd></div>
+        <div><dt>Process</dt><dd>Outreach, reply, product pick from a line sheet, shipping, then an affiliate dashboard with a unique code. Content returns ready to reuse.</dd></div>
+        <div class="res"><dt>Result</dt><dd>A creator content library, video with and without sound plus photos, that feeds paid social and email.</dd></div>
+      </dl>
+
+      <h3 class="sub">The pipeline</h3>
+      <ol class="flow" style="--n:5">
+        <li><b>Find &amp; vet</b><span>One tracking sheet.</span></li>
+        <li><b>Reach out</b><span>Paid, gifted or affiliate.</span></li>
+        <li><b>Agree terms</b><span>Deliverables and rate first.</span></li>
+        <li><b>Select &amp; ship</b><span>Pick from a line sheet.</span></li>
+        <li><b>Track &amp; reuse</b><span>Unique code, content cleared.</span></li>
+      </ol>
+
+      <h3 class="sub">The messages that run it</h3>
+      <p class="subp">Three messages, one for each stage. Pick one to see it.</p>
+      <div class="mtabs" id="mtabs">
+        <div class="mt-list" role="tablist" aria-label="Message stage">
+          <button class="mt-tab" role="tab" id="mt0" aria-controls="mp0" aria-selected="true"><i>01</i><b>New creator</b><small>Outreach</small></button>
+          <button class="mt-tab" role="tab" id="mt1" aria-controls="mp1" aria-selected="false" tabindex="-1"><i>02</i><b>After they reply</b><small>Terms</small></button>
+          <button class="mt-tab" role="tab" id="mt2" aria-controls="mp2" aria-selected="false" tabindex="-1"><i>03</i><b>New affiliate</b><small>Onboarding</small></button>
+        </div>
+        <div class="mt-panels">
+          <div class="mt-panel" role="tabpanel" id="mp0" aria-labelledby="mt0">
+            <div class="bubble"><span class="who">To a new creator</span><p>Hi [Name], we'd love to partner on a paid collaboration. Let me know your rate for the deliverables.</p></div>
+            <ul class="chips"><li><b>1</b> reel, 10 to 15 sec</li><li><b>2</b> photos, close-up and full body</li><li><b>3</b> story frames with link and code</li></ul>
+            <details><summary>Read the full message</summary><div class="full"><p>Hi [Name], hope you're doing great! We'd love to partner on a paid collaboration. The content includes:</p><ul><li>1 reel, 10 to 15 seconds</li><li>2 high-quality photos, close-up and full body</li><li>3 story frames with link and code</li></ul><p>Let me know your rate for the deliverables.</p></div></details>
+          </div>
+          <div class="mt-panel" role="tabpanel" id="mp1" aria-labelledby="mt1" hidden>
+            <div class="bubble"><span class="who">After they reply</span><p>Thanks for getting back to us! We'd love to gift you [product] in exchange for [content].</p></div>
+            <ul class="chips"><li><b>1</b> check the line sheet</li><li><b>2</b> send product, size and colour</li><li><b>3</b> add shipping details</li></ul>
+            <details><summary>Read the full message</summary><div class="full"><p>Thanks for getting back to us! We'd love to gift you [product] in exchange for [content].</p><p>If that works, check the line sheet and send your selections: product name, size and colour, plus shipping details.</p></div></details>
+          </div>
+          <div class="mt-panel" role="tabpanel" id="mp2" aria-labelledby="mt2" hidden>
+            <div class="bubble"><span class="who">To a new affiliate</span><p>We're so excited to have you on board! Your package ships today.</p></div>
+            <ul class="chips"><li><b>20%</b> off full-price items for your audience</li><li><b>1</b> dashboard for codes, sales and payment</li><li><b>@</b> tag the brand when you wear it</li></ul>
+            <details><summary>Read the full message</summary><div class="full"><p>We're so excited to have you on board! Your package ships today.</p><ul><li>Your dashboard tracks codes, sales, links and payment</li><li>Your unique code gives your audience 20% off full-price items</li><li>Tag the brand whenever you wear the pieces</li></ul></div></details>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid g2" style="margin-top:14px">
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/inf-drive.webp" data-cap="Creator content library: videos with and without sound, plus photos."><div class="frame banner" style="aspect-ratio:2.2/1"><img src="media/inf-drive.webp" alt="Folder of creator videos and photos, with sound and without sound versions" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Content library</span><b>Every creator asset, sorted for reuse</b><span>Each video is saved with and without sound, so it can run as a Reel, a story or a paid ad.</span></figcaption>
+        </figure>
+        <div class="msg" style="justify-content:center">
+          <header><b>Why the library matters</b></header>
+          <p>Creator content is proof that a real person wears the product. Once it is cleared, it becomes the highest-trust creative in the ad account, and the strongest material for the angles on the next section.</p>
+          <a class="btn ghost" href="#creative" style="width:max-content">See the creative process <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AD CREATIVE -->
+    <section class="sec" id="creative">
+      <div class="eyebrow"><span>04 · Ad creative process</span><span class="ctr">04 / 10</span></div>
+      <h2>Creative built to teach, <em>then move the buyer</em></h2>
+      <p class="lede">I have written, consulted on and edited hundreds of creatives: email graphics, video for info products, UGC images for ecommerce brands. The craft matters less than the reason each one exists.</p>
+      <dl class="gspr">
+        <div><dt>Goal</dt><dd>Educate the buyer on the product or service, then move them to act.</dd></div>
+        <div><dt>Strategy</dt><dd>Find where the buyer sits on the awareness ladder and pick the angle that meets them there.</dd></div>
+        <div><dt>Process</dt><dd>Research, angle, hook, format, test, then scale the winners and retire the rest.</dd></div>
+        <div class="res"><dt>Result</dt><dd>Creative that earns its place through ROAS, with winners scaled in the campaigns shown above.</dd></div>
+      </dl>
+
+      <h3 class="sub">The five awareness levels</h3>
+      <p class="subp">Based on Eugene Schwartz. The same product needs a different message at each step.</p>
+      <div class="temp" aria-hidden="true"><span>Cold</span><i></i><span>Ready to buy</span></div>
+      <div class="ladder">
+        <div><span class="lv">01</span><b>Unaware</b><em>No idea there is a problem</em><p>Lead with a story or a pattern interrupt that names who they are.</p></div>
+        <div><span class="lv">02</span><b>Problem-aware</b><em>Feels the pain, no solution</em><p>Name the problem in their words, then hint that a fix exists.</p></div>
+        <div><span class="lv">03</span><b>Solution-aware</b><em>Wants the result</em><p>Show how this product delivers that result better than the rest.</p></div>
+        <div><span class="lv">04</span><b>Product-aware</b><em>Knows it, not sure it fits</em><p>Proof, reviews, creator content and close-up detail.</p></div>
+        <div><span class="lv">05</span><b>Most aware</b><em>Only needs the deal</em><p>The offer, the price and the deadline. Nothing else.</p></div>
+      </div>
+
+      <h3 class="sub">Creative matched to the job</h3>
+      <p class="subp">Each piece below was made to do one job for one kind of buyer. These are just some example creatives.</p>
+      <div class="grid g4 story-row">
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/cr-dti.webp" data-cap="Collection hero: brand story for the whole range."><div class="frame story"><img src="media/cr-dti.webp" alt="Dress to Impress collection graphic with four satin dresses" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Problem-aware</span><b>Collection story</b><span>Sets the mood and frames the range as the answer to "what do I wear".</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/cr-eslimah.webp" data-cap="Product reveal with colour options."><div class="frame story"><img src="media/cr-eslimah.webp" alt="Satin maxi dress launch graphic in two colours" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Solution-aware</span><b>Product reveal</b><span>Two colours side by side so the choice is the only decision left.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/cr-leena.webp" data-cap="Detail-led launch creative."><div class="frame story"><img src="media/cr-leena.webp" alt="Ruched satin maxi dress launch graphic in two colours" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Product-aware</span><b>Detail close-up</b><span>The ruching and sleeve are the proof that it is worth the price.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/cr-razan.webp" data-cap="Silhouette and fabric launch creative."><div class="frame story"><img src="media/cr-razan.webp" alt="Satin balloon sleeve maxi dress launch graphic in two colours" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Product-aware</span><b>Silhouette and fabric</b><span>Movement and finish shown on the body, the thing a photo grid cannot do.</span></figcaption>
+        </figure>
+      </div>
+      <div class="grid g3" style="margin-top:14px">
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/em-499.webp" data-cap="Most-aware creative: the price leads."><div class="frame banner"><img src="media/em-499.webp" alt="Sale graphic with $4.99 price" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Most aware</span><b>Price first</b><span>The number is the headline, the discount is the support.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/em-2for10.webp" data-cap="Most-aware creative: the bundle leads."><div class="frame banner"><img src="media/em-2for10.webp" alt="Bundle graphic: 2 for $10" loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Most aware</span><b>Bundle</b><span>"No exclusions" removes the last doubt about the deal.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <button class="shot-btn" data-lb="media/em-cyber.webp" data-cap="Seasonal urgency: limited stock."><div class="frame banner"><img src="media/em-cyber.webp" alt="Cyber Monday collage graphic with $50 knitwear, blazers and pants" loading="lazy" style="object-fit:cover"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+          <figcaption><span class="tag">Product-aware</span><b>Seasonal urgency</b><span>One price across a range, "limited items in stock" to move people now.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SALES -->
+    <section class="sec" id="sales">
+      <div class="eyebrow"><span>05 · Sales</span><span class="ctr">05 / 10</span></div>
+      <h2>Over 2,000 sales calls, <em>and the skill of teaching them</em></h2>
+      <p class="lede">For eight years I have sold my own services and those of the businesses I work with, then taught others to do the same.</p>
+      <div class="stats">
+        <div class="stat hot"><b>2,000+</b><span>Sales calls conducted</span></div>
+        <div class="stat"><b>200+</b><span>Students consulted on sales calls</span></div>
+        <div class="stat"><b>300+</b><span>Calls audited with feedback</span></div>
+      </div>
+      <div class="grid g2" style="margin-top:16px;align-items:stretch">
+        <div class="fw">
+          <small>How I sell</small>
+          <b>Discovery first, pitch last</b>
+          <p>I use the SPIN structure. Understand the buyer's situation, find the problem, draw out what it is costing them, and let them state the payoff of fixing it. By the time I present, they are selling themselves.</p>
+          <p class="use"><i>Trained in</i>Straight Line Persuasion and SPIN selling, with sales training from Alex Hormozi and Grant Cardone.</p>
+        </div>
+        <div class="fw">
+          <small>How I lead</small>
+          <b>I ran a leads team in my own agency</b>
+          <p>I have trained hundreds of people and reviewed more than 300 of their recorded calls, giving specific feedback on openings, discovery and closing. I have also closed more than 80 clients at deal sizes of $1,200 to $10,000.</p>
+          <p class="use"><i>Also</i>Eight years of public teaching on YouTube and Instagram, including a 6-hour Meta Ads course.</p>
+        </div>
+      </div>
+      <figure class="shot" style="margin-top:14px;max-width:680px">
+        <button class="shot-btn" data-lb-video="media/v-team.mp4" data-cap="A live training session."><div class="frame" style="aspect-ratio:16/9"><video class="loopvid" muted loop playsinline preload="none" poster="media/v-team.webp" src="media/v-team.mp4" aria-label="Live training call on video"></video></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+        <figcaption><span class="tag">Live</span><b>Training in session</b><span>Calls are where I teach best: listen, give feedback, adjust, repeat.</span></figcaption>
+      </figure>
+    </section>
+
+    <!-- PSYCHOLOGY -->
+    <section class="sec" id="psychology">
+      <div class="eyebrow"><span>06 · Psychology &amp; consumer behaviour</span><span class="ctr">06 / 10</span></div>
+      <h2>Why people buy, <em>and how I use it</em></h2>
+      <p class="lede">This is what I studied and what sits under every ad, email and sales call I build. Each framework is a tool I use to choose a message, not a theory I recite.</p>
+      <div class="grid g3">
+        <div class="fw"><small>Awareness</small><b>Schwartz's 5 stages</b><p>How much the buyer already knows decides what the message must do.</p><p class="use"><i>Where I use it</i>Sets the angle and the first line of every ad and email.</p></div>
+        <div class="fw"><small>Desire</small><b>Whitman's life forces</b><p>Eight built-in desires, from survival and status to social approval, plus nine learned wants such as convenience and bargains.</p><p class="use"><i>Where I use it</i>Chooses the desire a product speaks to before a word is written.</p></div>
+        <div class="fw"><small>Emotion</small><b>Goleman's 8 emotions</b><p>Anger, sadness, fear, enjoyment, love, surprise, disgust and shame, each with a family of related feelings.</p><p class="use"><i>Where I use it</i>Maps the feeling a hook should trigger, and the one a call should avoid.</p></div>
+        <div class="fw"><small>Behaviour</small><b>Fogg: B = MAT</b><p>Behaviour happens when motivation, ability and a trigger arrive at the same moment.</p><p class="use"><i>Where I use it</i>Lifts motivation or removes friction: shorter forms, one clear next step.</p></div>
+        <div class="fw"><small>Bias</small><b>Munger's 25 tendencies</b><p>Reciprocation, social proof, scarcity, contrast, authority and the rest of the ways people decide.</p><p class="use"><i>Where I use it</i>Social proof in creator content, reciprocation in gifting, scarcity on restocks.</p></div>
+        <div class="fw"><small>Selling</small><b>Rackham's SPIN</b><p>Situation, problem, implication, need-payoff. Questions that lead the buyer to the conclusion.</p><p class="use"><i>Where I use it</i>Structures discovery on every sales call and every coaching review.</p></div>
+      </div>
+      <h3 class="sub">One creative, three levers</h3>
+      <p class="subp">The same frameworks, applied to a real sale graphic. Each number marks a decision made on purpose.</p>
+      <div class="annot">
+        <figure class="aimg"><img src="media/em-499.webp" alt="Sale graphic: pre-Black Friday, $4.99 hijabs, 40% off sitewide" loading="lazy">
+          <span class="pin" style="left:7%;top:16%">1</span><span class="pin" style="left:7%;top:46%">2</span><span class="pin" style="left:7%;top:80%">3</span></figure>
+        <ol class="alist">
+          <li><i>1</i><b>Scarcity and timing</b><span>"Pre-Black Friday" tells the buyer there is a window, and that they are early. Munger: scarcity.</span></li>
+          <li><i>2</i><b>A price that anchors</b><span>The number is the headline. $4.99 is so low the decision feels free. Behaviour needs ability, so the barrier is removed (Fogg).</span></li>
+          <li><i>3</i><b>One clear reward</b><span>"40% off sitewide" is a single, simple promise, so the next step is obvious and nothing is left to work out.</span></li>
+        </ol>
+      </div>
+
+      <h3 class="sub">My reference sheets</h3>
+      <p class="subp">The notes I keep open when I plan a message. Click any sheet to enlarge it.</p>
+      <div class="grid g3 sheets">
+        <figure class="shot"><button class="shot-btn" data-lb="media/psy-sheet.webp" data-cap="My reference sheet: Whitman, Schwartz, SPIN and Munger."><div class="frame"><img src="media/psy-sheet.webp" alt="My reference sheet: Whitman, Schwartz, SPIN and Munger." loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button><figcaption><span class="tag">Reference</span><b>Whitman, Schwartz, SPIN, Munger</b><span>Desires, awareness, selling questions and bias in one view.</span></figcaption></figure><figure class="shot"><button class="shot-btn" data-lb="media/psy-emotions.webp" data-cap="Goleman's 8 emotions and Fogg's B = MAT."><div class="frame"><img src="media/psy-emotions.webp" alt="Goleman's 8 emotions and Fogg's B = MAT." loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button><figcaption><span class="tag">Reference</span><b>Emotions and B = MAT</b><span>The feeling a hook triggers, and the three things behaviour needs.</span></figcaption></figure><figure class="shot"><button class="shot-btn" data-lb="media/psy-codex.webp" data-cap="The Cognitive Bias Codex, by Buster Benson and John Manoogian III (CC BY-SA 4.0)."><div class="frame"><img src="media/psy-codex.webp" alt="The Cognitive Bias Codex, by Buster Benson and John Manoogian III (CC BY-SA 4.0)." loading="lazy"></div><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button><figcaption><span class="tag">Reference</span><b>Cognitive Bias Codex</b><span>All the ways people decide, grouped by the problem each one solves.</span></figcaption></figure>
+      </div>
+      <p class="fine">Cognitive Bias Codex by Buster Benson and John Manoogian III, licensed CC BY-SA 4.0.</p>
+    </section>
+
+    <!-- WEB DEV -->
+    <section class="sec" id="web">
+      <div class="eyebrow"><span>07 · Website development</span><span class="ctr">07 / 10</span></div>
+      <h2>High-quality websites, <em>built with AI</em></h2>
+      <p class="lede">I have a detailed working knowledge of vibe coding: directing AI tools to design and ship polished, fast websites. Pick a site to see it live on desktop and on a phone.</p>
+      <div class="tabs" role="tablist" aria-label="Choose a website" id="siteTabs"></div>
+      <div class="devices">
+        <div class="dwin">
+          <div class="dbar"><div class="lights"><i></i><i></i><i></i></div><div class="urlbox" id="urlbox">Live site</div><a class="open" id="openLive" href="#" target="_blank" rel="noopener">Open full site ↗</a></div>
+          <div class="dscreen" id="dscreen"><iframe id="deskFrame" title="Desktop preview of the selected website" loading="lazy" referrerpolicy="no-referrer"></iframe></div>
+        </div>
+        <div class="phonecol">
+          <div class="phone"><div class="pscreen" id="pscreen"><div class="notch"></div><iframe id="mobFrame" title="Mobile preview of the selected website" loading="lazy" referrerpolicy="no-referrer"></iframe></div></div>
+          <div class="cap">Live on mobile</div>
+        </div>
+      </div>
+      <p class="wnote">These are real, live sites. Scroll inside either window to explore.</p>
+    </section>
+
+    <!-- TRAINING -->
+    <section class="sec dark" id="training">
+      <div class="eyebrow"><span>08 · Training</span><span class="ctr">08 / 10</span></div>
+      <h2>The Elite Closer's <em>Playbook</em></h2>
+      <p class="lede">A masterclass I recorded on how to close: how elite closers think, why people really don't buy, how to take apart an objection, and the framework to run before every call.</p>
+      <div class="loom" id="loom" data-id="bac5a84a57014461841991a4aec66c18">
+        <button class="loomplay" id="loomBtn" aria-label="Play the Elite Closer's Playbook training">
+          <span class="poster" aria-hidden="true">
+            <span class="pt"><small>Masterclass · 1h 17m</small><b>The Elite Closer's Playbook</b><em>Seven core lessons, the Onion of Blame, and a call-by-call framework.</em></span>
+            <img class="pp" src="media/portrait.webp" alt="" width="760" height="1140">
+          </span>
+          <img class="real" src="media/loom-thumb.webp" alt="" onload="this.classList.add('on');this.parentNode.querySelector('.poster').style.display='none'" onerror="this.remove()">
+          <span class="pb"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span>
+          <span class="loomlabel"><b>Watch the full training</b><span>Press play</span></span>
+        </button>
+      </div>
+      <ul class="chapters"><li><b>01</b>7 core lessons</li><li><b>02</b>The Onion of Blame</li><li><b>03</b>Objection handling</li><li><b>04</b>The elite closer framework</li><li><b>+</b>Cheat sheet for every call</li></ul>
+      <div class="vid2">
+        <h3 class="sub">Email marketing training</h3>
+        <p class="vsub">A second training I recorded, this one on email: how I plan and build the channel.</p>
+        <div class="wist">
+          <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/a3h7q8iqca.js" async type="module"></script><style>wistia-player[media-id='a3h7q8iqca']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/a3h7q8iqca/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+          <wistia-player media-id="a3h7q8iqca" aspect="1.7777777777777777"></wistia-player>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="sec" id="experience">
+      <div class="eyebrow"><span>09 · Experience</span><span class="ctr">09 / 10</span></div>
+      <h2>Ten years of building, <em>eight of them in marketing</em></h2>
+      <p class="lede">I started by building my own businesses, learned marketing by doing it for others, and now I want to put it to work inside one company.</p>
+      <ol class="jny">
+        <li><time>2016</time><div class="jc"><h3>Where it began</h3><p>Amazon FBA, dropshipping and print on demand. I tried them all. Some worked, some failed, and it was the start of my entrepreneurial journey.</p><div class="jt"><span>Amazon FBA</span><span>Dropshipping</span><span>Print on demand</span></div></div></li>
+        <li><time>2018</time><div class="jc"><h3>First marketing agency, San Francisco</h3><p>Started a marketing agency offering SEO and paid ads to real estate agents. This is where the eight years in marketing begin.</p></div></li>
+        <li class="low"><time>2020</time><div class="jc"><h3>Covid hit and I lost every client</h3><p>The agency lost all of its clients. Two months into covid I took a job as Marketing Coordinator at ipse.US, a nonprofit, where I led the marketing department.</p></div></li>
+        <li><time>2022</time><div class="jc"><h3>Agency for ecommerce and info products</h3><p>Started a new agency working with ecommerce and info-product companies, running paid ads and email. Over $65M in tracked client revenue came from this chapter.</p></div></li>
+        <li><time>2024</time><div class="jc"><h3>Consulting and coaching</h3><p>Took those years of experience and began consulting people on how to start their own online business, coaching 200+ students along the way.</p></div></li>
+        <li class="now"><time>Late 2026</time><div class="jc"><h3>Looking for the right company</h3><p>Newly married, and looking for a company where I can use these skills with stable income and a set schedule.</p><a class="btn" href="#contact">Get in touch <svg><use href="#i-arrow"/></svg></a></div></li>
+      </ol>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="sec dark" id="contact">
+      <div class="eyebrow"><span>10 · Contact</span><span class="ctr">10 / 10</span></div>
+      <div class="contact" style="margin-top:14px">
+        <div>
+          <h2 style="margin-top:0">Let's talk <em>about the role</em></h2>
+          <p class="lede">I'm looking for a full-time sales or marketing position where strategy and numbers both matter. Send a note and I'll reply.</p>
+        </div>
+        <div class="ccard">
+          <div class="cl">Email</div>
+          <div class="addr" id="addr">mj.marketseo@gmail.com</div>
+          <div class="crow">
+            <a class="btn" href="mailto:mj.marketseo@gmail.com"><svg><use href="#i-mail"/></svg>Email me</a>
+            <button class="btn ghost" id="copyBtn" type="button"><svg><use href="#i-copy"/></svg><span id="copyTxt">Copy address</span></button>
+          </div>
+          <div class="cl" style="margin-top:6px">Instagram</div>
+          <a class="addr" href="https://www.instagram.com/mjpreneur" target="_blank" rel="noopener" style="text-decoration:none">@mjpreneur</a>
+        </div>
+      </div>
+    </section>
+
+    <footer><span>© 2026 MJ Alshubi</span><span>Sales &amp; Marketing Strategist</span></footer>
+  </main>
+</div>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged media">
+  <button class="x" id="lbX" aria-label="Close">✕</button>
+  <button class="p" id="lbP" aria-label="Previous">‹</button>
+  <button class="n" id="lbN" aria-label="Next">›</button>
+  <div class="lb-in"><div id="lbMedia"></div><div class="lb-cap" id="lbCap"></div></div>
+</div>
+
+<script>
+(function(){
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- sites ---------- */
+  var SITES = [
+    {label:'Restaurant', url:'https://qataban.pages.dev'},
+    {label:'Aesthetic Clinic', url:'https://taj-clinic.pages.dev'},
+    {label:'Dental Clinic', url:'https://smile-home-dental.pages.dev'},
+    {label:'Chocolate Brand', url:'https://mx-brand-site.pages.dev'},
+    {label:'Multi-specialty Clinic', url:'https://sira-clinics.pages.dev'}
+  ];
+  var tabs = document.getElementById('siteTabs');
+  var desk = document.getElementById('deskFrame'), mob = document.getElementById('mobFrame');
+  var openLive = document.getElementById('openLive');
+  var cur = 0, framesArmed = false;
+  SITES.forEach(function(s,i){
+    var b = document.createElement('button');
+    b.className='tab'; b.type='button'; b.setAttribute('role','tab');
+    b.setAttribute('aria-selected', i===0 ? 'true':'false');
+    b.textContent = s.label;
+    b.addEventListener('click', function(){ pick(i); });
+    tabs.appendChild(b);
+  });
+  function pick(i){
+    cur = i;
+    Array.prototype.forEach.call(tabs.children, function(t,j){ t.setAttribute('aria-selected', j===i ? 'true':'false'); });
+    openLive.href = SITES[i].url;
+    if(framesArmed){ desk.src = SITES[i].url; mob.src = SITES[i].url; }
+  }
+  openLive.href = SITES[0].url;
+  function fit(){
+    var ds = document.getElementById('dscreen'), ps = document.getElementById('pscreen');
+    if(ds.clientWidth) desk.style.setProperty('--s', (ds.clientWidth/1440).toFixed(4));
+    if(ps.clientWidth) mob.style.setProperty('--s', (ps.clientWidth/390).toFixed(4));
+  }
+  fit(); window.addEventListener('resize', fit);
+  if('ResizeObserver' in window){ var ro=new ResizeObserver(fit); ro.observe(document.getElementById('dscreen')); ro.observe(document.getElementById('pscreen')); }
+  /* load the live sites only when the section nears the screen */
+  var webSec = document.getElementById('web');
+  function arm(){ if(framesArmed) return; framesArmed = true; desk.src = SITES[cur].url; mob.src = SITES[cur].url; fit(); }
+  if('IntersectionObserver' in window){
+    var io0 = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ arm(); io0.disconnect(); } }); },{rootMargin:'600px 0px'});
+    io0.observe(webSec);
+  } else arm();
+
+  /* ---------- nav / scroll spy ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function setActive(id){ links.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href')==='#'+id ? 'true':'false'); }); }
+  function spy(){
+    var y = window.innerHeight*0.35, best = secs[0].id;
+    secs.forEach(function(s){ if(s.getBoundingClientRect().top <= y) best = s.id; });
+    if(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) best = secs[secs.length-1].id;
+    setActive(best);
+  }
+  window.addEventListener('scroll', spy, {passive:true}); spy();
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(a.getAttribute('href'));
+      if(!t) return;
+      e.preventDefault();
+      closeMenu();
+      t.scrollIntoView({behavior: RM ? 'auto':'smooth', block:'start'});
+      setActive(t.id);
+    });
+  });
+  document.querySelectorAll('.btn[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(a.getAttribute('href')); if(!t) return;
+      e.preventDefault(); t.scrollIntoView({behavior: RM ? 'auto':'smooth', block:'start'});
+    });
+  });
+
+  /* ---------- mobile drawer ---------- */
+  var side = document.getElementById('side'), scrim = document.getElementById('scrim'), menuBtn = document.getElementById('menuBtn');
+  function openMenu(){ side.classList.add('open'); scrim.classList.add('on'); menuBtn.setAttribute('aria-expanded','true'); }
+  function closeMenu(){ side.classList.remove('open'); scrim.classList.remove('on'); menuBtn.setAttribute('aria-expanded','false'); }
+  menuBtn.addEventListener('click', function(){ side.classList.contains('open') ? closeMenu() : openMenu(); });
+  scrim.addEventListener('click', closeMenu);
+
+  /* ---------- videos: play only while visible ---------- */
+  var vids = Array.prototype.slice.call(document.querySelectorAll('video.loopvid'));
+  if(RM){ vids.forEach(function(v){ v.controls = true; }); }
+  else if('IntersectionObserver' in window){
+    var vio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v = e.target;
+        if(e.isIntersecting){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+        else v.pause();
+      });
+    },{threshold:0.4});
+    vids.forEach(function(v){ vio.observe(v); });
+  }
+
+  /* ---------- lightbox ---------- */
+  var lb = document.getElementById('lb'), lbMedia = document.getElementById('lbMedia'), lbCap = document.getElementById('lbCap');
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-lb],[data-lb-video]'));
+  var idx = -1, lastFocus = null;
+  function show(i){
+    idx = (i + items.length) % items.length;
+    var el = items[idx], vsrc = el.getAttribute('data-lb-video'), isrc = el.getAttribute('data-lb');
+    lbMedia.innerHTML = '';
+    var m;
+    if(vsrc){ m = document.createElement('video'); m.src = vsrc; m.controls = true; m.autoplay = true; m.muted = true; m.loop = true; m.playsInline = true; }
+    else { m = document.createElement('img'); m.src = isrc; m.alt = el.getAttribute('data-cap') || ''; }
+    lbMedia.appendChild(m);
+    lbCap.textContent = el.getAttribute('data-cap') || '';
+  }
+  function openLb(i){ lastFocus = document.activeElement; show(i); lb.classList.add('on'); document.body.style.overflow='hidden'; document.getElementById('lbX').focus(); }
+  function closeLb(){ lb.classList.remove('on'); lbMedia.innerHTML=''; document.body.style.overflow=''; if(lastFocus && lastFocus.focus) lastFocus.focus(); }
+  items.forEach(function(el,i){ el.addEventListener('click', function(e){ e.preventDefault(); openLb(i); }); });
+  document.getElementById('lbX').addEventListener('click', closeLb);
+  document.getElementById('lbP').addEventListener('click', function(){ show(idx-1); });
+  document.getElementById('lbN').addEventListener('click', function(){ show(idx+1); });
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){
+    if(lb.classList.contains('on')){
+      if(e.key==='Escape') closeLb();
+      else if(e.key==='ArrowLeft') show(idx-1);
+      else if(e.key==='ArrowRight') show(idx+1);
+    } else if(e.key==='Escape') closeMenu();
+  });
+
+  /* ---------- Loom: click to load ---------- */
+  var loom = document.getElementById('loom'), loomBtn = document.getElementById('loomBtn');
+  loomBtn.addEventListener('click', function(){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.loom.com/embed/' + loom.getAttribute('data-id') + '?autoplay=1&hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true';
+    f.title = 'One-hour training video';
+    f.allow = 'autoplay; fullscreen; picture-in-picture';
+    f.setAttribute('allowfullscreen','');
+    loom.innerHTML = ''; loom.appendChild(f);
+  });
+
+  /* ---------- copy email ---------- */
+  var copyBtn = document.getElementById('copyBtn'), copyTxt = document.getElementById('copyTxt');
+  copyBtn.addEventListener('click', function(){
+    var addr = document.getElementById('addr').textContent.trim();
+    function done(){ copyTxt.textContent = 'Copied'; setTimeout(function(){ copyTxt.textContent = 'Copy address'; }, 1800); }
+    function sel(){ try{ var r = document.createRange(); r.selectNodeContents(document.getElementById('addr')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copyTxt.textContent = 'Press Ctrl/Cmd + C'; }catch(_){} }
+    try{ navigator.clipboard.writeText(addr).then(done, sel); }catch(_){ sel(); }
+  });
+
+  /* ---------- v4 ---------- */
+  (function(){
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('#mtabs .mt-tab'));
+    function pick(i, focus){
+      tabs.forEach(function(t, k){
+        var on = k === i; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1;
+        var p = document.getElementById(t.getAttribute('aria-controls')); if(p) p.hidden = !on;
+      });
+      if(focus) tabs[i].focus();
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ pick(i); });
+      t.addEventListener('keydown', function(e){
+        var k = e.key, n = tabs.length;
+        if(k === 'ArrowDown' || k === 'ArrowRight'){ e.preventDefault(); pick((i+1)%n, true); }
+        else if(k === 'ArrowUp' || k === 'ArrowLeft'){ e.preventDefault(); pick((i+n-1)%n, true); }
+      });
+    });
+    var cr = document.getElementById('creative');
+    if(cr){
+      var row = cr.querySelector('.story-row');
+      if(row){
+        var stage = document.createElement('div'); stage.className = 'stage';
+        row.parentNode.insertBefore(stage, row);
+        stage.appendChild(row);
+        if(stage.nextElementSibling && stage.nextElementSibling.classList.contains('grid')) stage.appendChild(stage.nextElementSibling);
+      }
+      var n = 0;
+      cr.querySelectorAll('.shot-btn').forEach(function(btn){
+        var tag = btn.parentNode.querySelector('.tag'); n++;
+        var b = document.createElement('span'); b.className = 'stg';
+        b.innerHTML = '<b>' + (n < 10 ? '0' : '') + n + '</b>'; b.appendChild(document.createTextNode(tag ? tag.textContent : ''));
+        var j = document.createElement('span'); j.className = 'jobline'; j.textContent = btn.getAttribute('data-cap') || '';
+        btn.appendChild(b); btn.appendChild(j); btn.classList.add('hasjob');
+      });
+    }
+  })();
+
+  /* ---------- AgencyX additions ---------- */
+  var prog = document.getElementById('progBar');
+  var rail = document.querySelector('#nav .rail');
+  var navEl = document.getElementById('nav');
+  function railPos(){
+    var a = document.querySelector('#nav a[aria-current="true"]'); if(!a || !rail) return;
+    rail.style.setProperty('--p', (a.offsetTop + a.offsetHeight/2) + 'px');
+    var sc = a.closest('.navscroll');
+    if(sc){ var top = a.offsetTop, bot = top + a.offsetHeight; if(top < sc.scrollTop) sc.scrollTop = top - 8; else if(bot > sc.scrollTop + sc.clientHeight) sc.scrollTop = bot - sc.clientHeight + 8; }
+  }
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(prog) prog.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0).toFixed(4) + ')';
+    railPos();
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); window.addEventListener('resize', onScroll); onScroll();
+
+  /* hero spotlight follows the pointer */
+  var hero = document.getElementById('home');
+  if(hero && !RM){
+    hero.addEventListener('pointermove', function(e){
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  }
+
+  /* count-up for hero numbers */
+  function countUp(el){
+    var t = el.textContent, m = t.match(/^([^0-9]*)([0-9][0-9,]*)(.*)$/); if(!m) return;
+    var end = parseInt(m[2].replace(/,/g,''),10), dur = 1400, t0 = null;
+    function fmt(n){ return m[2].indexOf(',') > -1 ? n.toLocaleString('en-US') : String(n); }
+    function step(ts){ if(t0 === null) t0 = ts; var p = Math.min(1,(ts - t0)/dur), e = 1 - Math.pow(1-p,3); el.textContent = m[1] + fmt(Math.round(end*e)) + m[3]; if(p < 1) requestAnimationFrame(step); else el.textContent = t; }
+    el.textContent = m[1] + '0' + m[3]; requestAnimationFrame(step);
+  }
+  var counts = document.querySelectorAll('[data-count]');
+  if(!RM && 'IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } }); },{threshold:0.6});
+    counts.forEach(function(c){ cio.observe(c); });
+  }
+
+  /* chart bars grow when seen */
+  var chart = document.getElementById('roas');
+  if(chart){
+    if('IntersectionObserver' in window){ var xio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ chart.classList.add('grown'); xio.disconnect(); } }); },{threshold:0.25}); xio.observe(chart); }
+    else chart.classList.add('grown');
+  }
+
+  /* browser-style header on video and wide screenshot frames */
+  document.querySelectorAll('.shot-btn').forEach(function(btn){
+    var fr = btn.querySelector('.frame'); if(!fr) return;
+    var isVid = !!fr.querySelector('video');
+    if(!isVid && !fr.classList.contains('wide')) return;
+    var tag = btn.parentNode.querySelector('.tag');
+    var bar = document.createElement('div'); bar.className = 'chrome'; bar.setAttribute('aria-hidden','true');
+    bar.innerHTML = '<i></i><i></i><i></i><span></span>' + (isVid ? '<b>REC</b>' : '');
+    bar.querySelector('span').textContent = tag ? tag.textContent : '';
+    btn.insertBefore(bar, fr); btn.classList.add('hc');
+  });
+
+  /* reveal on scroll */
+  if(document.documentElement.classList.contains('js') && 'IntersectionObserver' in window){
+    var rvEls = document.querySelectorAll('.shot,.fw,.msg,.gspr>div,.flow li,.ladder>div,.job,.stat,.fcase,.chart,.ccard,.tl,.dwin,.phone,.loom');
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el = e.target, sib = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.transitionDelay = Math.min(sib,5)*70 + 'ms';
+        el.classList.add('in'); rio.unobserve(el);
+        setTimeout(function(){ el.classList.remove('rv','in'); el.style.transitionDelay = ''; }, 1000 + Math.min(sib,5)*70);
+      });
+    },{rootMargin:'0px 0px -6% 0px',threshold:0.05});
+    rvEls.forEach(function(el){ el.classList.add('rv'); rio.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
